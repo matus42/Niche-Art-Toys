@@ -80,7 +80,28 @@ body {
 
 .navbar {
     border-bottom: 1px solid #4C3957;
-    
+}
+
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: #a2a39d;
+	z-index: -1;
+}
+
+#product_row {
+    margin-bottom: 30px;
+}
+
+.card {
+    border: 1px solid #4C3957 !important;
+}
+
+.card-body, .card-footer {
+    background-color: #f0f1eb !important; /* Adjust color as desired */
 }
 
 /* -------------------------------- Media Queries */
