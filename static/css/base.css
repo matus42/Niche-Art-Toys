@@ -101,7 +101,12 @@ body {
 }
 
 .card-body, .card-footer {
-    background-color: #f0f1eb !important; /* Adjust color as desired */
+    background-color: #f0f1eb !important;
+}
+
+a.category-badge > span.badge:hover {
+    background: #552C64 !important;
+    color: #a2a39d !important;
 }
 
 
@@ -109,7 +114,7 @@ body {
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
-    .container {
+    .home-container {
       max-width: 80%;
     }
   }
