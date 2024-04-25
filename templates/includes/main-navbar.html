@@ -18,10 +18,10 @@
                 Toys
             </a>
             <div id="topnav" class="dropdown-menu border-1" aria-labelledby="Toys-link">
-                <a href="" class="dropdown-item">Crochet Toys</a>
-                <a href="" class="dropdown-item">Used Toys</a>
+                <a href="{% url 'products' %}?category=crochet_toys" class="dropdown-item">Crochet Toys</a>
+                <a href="{% url 'products' %}?category=used_toys" class="dropdown-item">Used Toys</a>
                 <div class="dropdown-divider"></div>
-                <a href="" class="dropdown-item">All Toys</a>
+                <a href="{% url 'products' %}?category=crochet_toys,used_toys" class="dropdown-item">All Toys</a>
             </div>
         </li>
 
@@ -30,10 +30,10 @@
                 Art
             </a>
             <div id="topnav" class="dropdown-menu border-1" aria-labelledby="Art-link">
-                <a href="" class="dropdown-item">Watercolour Paintings</a>
-                <a href="" class="dropdown-item">Acrylic Paintings</a>
+                <a href="{% url 'products' %}?category=watercolor_paintings" class="dropdown-item">Watercolour Paintings</a>
+                <a href="{% url 'products' %}?category=acrylic_paintings" class="dropdown-item">Acrylic Paintings</a>
                 <div class="dropdown-divider"></div>
-                <a href="" class="dropdown-item">All Paintings</a>
+                <a href="{% url 'products' %}?category=watercolor_paintings,acrylic_paintings" class="dropdown-item">All Paintings</a>
             </div>
         </li>
 
