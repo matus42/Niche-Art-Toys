@@ -38,7 +38,7 @@
                     </p>
                     {% endif %}
                     {% if product.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ rating }} / 5</small>
                     {% else %}
                         <small class="text-muted">No Rating</small>
                     {% endif %}
@@ -49,27 +49,26 @@
     </div>
 
     <div class="col-lg-5 col-md-6 container mt-3 mb-5">
-        <h2>Rate This Product</h2>
-        <form id="rating-form" method="post" class="mt-4">
-            {% csrf_token %}
-            <div class="form-group star-rating">
-                <label for="score" class="control-label"></label>
-                <select name="score" id="score" class="form-control">
-                    <option value="">Choose a rating</option>
-                    <option value="1">⭐️ - Poor</option>
-                    <option value="2">⭐️⭐️ - Fair</option>
-                    <option value="3">⭐️⭐️⭐️ - Good</option>
-                    <option value="4">⭐️⭐️⭐️⭐️ - Very Good</option>
-                    <option value="5">⭐️⭐️⭐️⭐️⭐️ - Excellent</option>
-                </select>
-                <input type="hidden" name="score" id="score">
-            </div>
-            <div class="form-group">
-                <label for="comment" class="control-label">Comment (optional)</label>
-                <textarea name="comment" id="comment" class="form-control"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary mb-5">Submit</button>
-        </form>
-    </div>
+    <h2>Rate This Product</h2>
+    <form id="rating-form" method="post" class="mt-4">
+        {% csrf_token %}
+        <div class="form-group star-rating">
+            <label for="id_score" class="control-label">Choose a rating:</label>
+            <select name="score" id="id_score" class="form-control">
+                <option value="">Choose a rating</option>
+                <option value="1">⭐️ - Poor</option>
+                <option value="2">⭐️⭐️ - Fair</option>
+                <option value="3">⭐️⭐️⭐️ - Good</option>
+                <option value="4">⭐️⭐️⭐️⭐️ - Very Good</option>
+                <option value="5">⭐️⭐️⭐️⭐️⭐️ - Excellent</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="id_comment" class="control-label">Comment (optional):</label>
+            <textarea name="comment" id="id_comment" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mb-5">Submit</button>
+    </form>
+</div>
     
 {% endblock %}

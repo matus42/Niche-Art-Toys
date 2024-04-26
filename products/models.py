@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
 # Create your models here.
 
@@ -32,3 +33,23 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def average_rating(self):
+        ratings = self.ratings.all()
+        if ratings.exists():
+            average = sum(rating.score for rating in ratings) / ratings.count()
+            return round(average, 1)
+        return None
+
+
+User = get_user_model()
+
+class Rating(models.Model):
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='ratings')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)   
+    score = models.DecimalField(max_digits=2, decimal_places=1)
+    comment = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.score} by {self.user} for {self.product}"
