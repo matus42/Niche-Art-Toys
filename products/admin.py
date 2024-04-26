@@ -22,7 +22,15 @@ class CategoryAdmin(admin.ModelAdmin):
         'name',
     )
 
+class RatingAdmin(admin.ModelAdmin):
+    list_display = (
+        'created_at',
+        'user',
+        'score',
+        'product',
+        'comment',
+    )
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Rating)
+admin.site.register(Rating, RatingAdmin)
