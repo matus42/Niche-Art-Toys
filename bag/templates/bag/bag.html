@@ -75,6 +75,8 @@
                                                 </div>
                                             </div>
                                         </form>
+                                        <a class="update-link "><small>Update</small></a>
+                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.product.price }}</p>
@@ -124,3 +126,33 @@
         </div>
     </div>
 {% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Update quantity on click
+        $('.update-link').click(function(e) {
+            e.preventDefault();
+            $(this).prev('.update-form').submit();
+        });
+
+        // Remove item and reload on click
+        $('.remove-item').click(function(e) {
+            e.preventDefault();
+            const csrfToken = "{{ csrf_token }}";
+            const itemId = this.id.split('remove_')[1];
+            const size = $(this).data('size');
+            const url = `/bag/remove/${itemId}`;
+            const data = { 'csrfmiddlewaretoken': csrfToken, 'size': size };
+
+            $.post(url, data).done(function() {
+                location.reload();
+            });
+        });
+    });
+</script>
+{% endblock %}
+
