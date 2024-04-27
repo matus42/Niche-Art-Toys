@@ -1,0 +1,35 @@
+<script type="text/javascript">
+    // Function to update the disable state of the +/- buttons
+    function updateButtonState(inputElement) {
+        const currentValue = parseInt(inputElement.val());
+        const itemId = inputElement.data('item_id');
+        $(`#decrement-qty_${itemId}`).prop('disabled', currentValue < 2);
+        $(`#increment-qty_${itemId}`).prop('disabled', currentValue > 98);
+    }
+
+    // Handles click events for incrementing and decrementing quantities
+    function handleQuantityChange(inputElement, increment) {
+        const currentValue = parseInt(inputElement.val());
+        inputElement.val(currentValue + increment);
+        updateButtonState(inputElement);
+    }
+
+    $(document).ready(function() {
+        // Initialize button states
+        $('.qty_input').each(function() {
+            updateButtonState($(this));
+        }).change(function() {
+            updateButtonState($(this));
+        });
+
+        $('.increment-qty').click(function(e) {
+            e.preventDefault();
+            handleQuantityChange($(this).closest('.input-group').find('.qty_input'), 1);
+        });
+
+        $('.decrement-qty').click(function(e) {
+            e.preventDefault();
+            handleQuantityChange($(this).closest('.input-group').find('.qty_input'), -1);
+        });
+    });
+</script>
