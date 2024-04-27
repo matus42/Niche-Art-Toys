@@ -48,7 +48,7 @@
                                         <p class="my-0">€{{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="">
+                                        <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <div class="input-group">
@@ -144,9 +144,8 @@
             e.preventDefault();
             const csrfToken = "{{ csrf_token }}";
             const itemId = this.id.split('remove_')[1];
-            const size = $(this).data('size');
             const url = `/bag/remove/${itemId}`;
-            const data = { 'csrfmiddlewaretoken': csrfToken, 'size': size };
+            const data = { 'csrfmiddlewaretoken': csrfToken };
 
             $.post(url, data).done(function() {
                 location.reload();
@@ -154,5 +153,6 @@
         });
     });
 </script>
+
 {% endblock %}
 
