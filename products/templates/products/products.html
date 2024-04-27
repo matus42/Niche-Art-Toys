@@ -82,6 +82,11 @@
                                             {% else %}
                                                 <small class="text-muted">No Rating</small>
                                             {% endif %}
+                                            {% if product.stock_quantity > 0 %}
+                                                <p class="text-success"><strong>Available: {{ product.stock_quantity }}</strong></p>
+                                            {% else %}
+                                                <p class="text-danger"><strong>Out of Stock</strong></p>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
