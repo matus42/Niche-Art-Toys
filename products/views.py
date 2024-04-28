@@ -89,3 +89,8 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+
+
+def clearance_items(request):
+    products = Product.objects.filter(is_clearance=True)
+    return render(request, 'products/clearance.html', {'products': products})

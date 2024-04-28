@@ -24,7 +24,8 @@ class Product(models.Model):
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
-    is_sold = models.BooleanField(default=False)  # The flag for sold items 
+    is_sold = models.BooleanField(default=False)  # The flag for sold items
+    is_clearance = models.BooleanField(default=False, verbose_name='Clearance Item')
     stock_quantity = models.IntegerField(default=1)  # Default quantity is 1 (unique item)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)

@@ -12,9 +12,12 @@ class ProductAdmin(admin.ModelAdmin):
         'price',
         'rating',
         'image',
+        'is_clearance',
     )
 
     ordering = ('sku',)
+    list_editable = ('is_clearance', 'stock_quantity',)
+    list_filter = ('is_clearance', 'category',)
 
 
 class CategoryAdmin(admin.ModelAdmin):
