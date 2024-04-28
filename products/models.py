@@ -54,3 +54,11 @@ class Rating(models.Model):
 
     def __str__(self):
         return f"{self.score} by {self.user} for {self.product}"
+
+
+class Wishlist(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='wishlist')
+    products = models.ManyToManyField(Product, related_name='wishlisted_by')
+
+    def __str__(self):
+        return f"{self.user}'s Wishlist"
