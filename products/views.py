@@ -77,7 +77,7 @@ def product_detail(request, product_id):
             rating.user = request.user 
             rating.product = product
             rating.save()
-            messages.success(request, 'Thanks for your rating!')
+            messages.success(request, f'Thanks for your rating of product {product.name}')
             return redirect('product_detail', product_id=product_id)
     else:
         form = RatingForm()
