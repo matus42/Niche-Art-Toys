@@ -2,10 +2,11 @@ from django.shortcuts import render,redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category, Rating
+from .models import Product, Category, Rating, Wishlist
 from django.db.models.functions import Lower
 from django.db.models import Avg
 from .forms import RatingForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -94,3 +95,27 @@ def product_detail(request, product_id):
 def clearance_items(request):
     products = Product.objects.filter(is_clearance=True)
     return render(request, 'products/clearance.html', {'products': products})
+
+
+@login_required
+def view_wishlist(request):
+    wishlist, created = Wishlist.objects.get_or_create(user=request.user)
+    return render(request, 'products/wishlist.html', {'wishlist': wishlist})
+
+@login_required
+def add_to_wishlist(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    wishlist, created = Wishlist.objects.get_or_create(user=request.user)
+    if product not in wishlist.products.all():
+        wishlist.products.add(product)
+        messages.success(request, f'{product.name} has been added to your wishlist!')
+    else:
+        messages.info(request, f'{product.name} is already in your wishlist.')
+    return redirect('product_detail', product_id=product_id)
+
+@login_required
+def remove_from_wishlist(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    wishlist = Wishlist.objects.get(user=request.user)
+    wishlist.products.remove(product)
+    return redirect('view_wishlist')
