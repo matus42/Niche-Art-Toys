@@ -117,5 +117,10 @@ def add_to_wishlist(request, product_id):
 def remove_from_wishlist(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     wishlist = Wishlist.objects.get(user=request.user)
-    wishlist.products.remove(product)
+    if product in wishlist.products.all():  # Check if the product is actually in the wishlist
+        wishlist.products.remove(product)
+        messages.success(request, f'{product.name} has been removed from your wishlist.')  # Success message
+    else:
+        messages.info(request, f'{product.name} was not in your wishlist.')  # Information message if the product was not found
+
     return redirect('view_wishlist')
