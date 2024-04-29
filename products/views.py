@@ -99,6 +99,32 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
+@login_required
+def delete_comment(request, product_id, comment_id):
+    comment = get_object_or_404(Rating, id=comment_id, product_id=product_id)
+    
+    if request.user == comment.user:
+        comment.delete()
+        messages.success(request, "Your comment has been deleted.")
+    else:
+        messages.error(request, "You do not have permission to delete this comment.")
+    
+    return redirect('product_detail', product_id=product_id)
+
+
+@login_required
+def edit_comment(request, product_id, rating_id):
+    rating = get_object_or_404(Rating, id=rating_id, product_id=product_id, user=request.user)
+    if request.method == 'POST':
+        form = RatingForm(request.POST, instance=rating)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your rating and comment have been updated.")
+            return redirect('product_detail', product_id=product_id)
+    else:
+        form = RatingForm(instance=rating)
+    return redirect('product_detail', product_id=product_id)
+
 
 
 def clearance_items(request):
@@ -126,10 +152,10 @@ def add_to_wishlist(request, product_id):
 def remove_from_wishlist(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     wishlist = Wishlist.objects.get(user=request.user)
-    if product in wishlist.products.all():  # Check if the product is actually in the wishlist
+    if product in wishlist.products.all():
         wishlist.products.remove(product)
-        messages.success(request, f'{product.name} has been removed from your wishlist.')  # Success message
+        messages.success(request, f'{product.name} has been removed from your wishlist.')
     else:
-        messages.info(request, f'{product.name} was not in your wishlist.')  # Information message if the product was not found
+        messages.info(request, f'{product.name} was not in your wishlist.')
 
     return redirect('view_wishlist')
