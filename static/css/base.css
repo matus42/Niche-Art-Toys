@@ -138,6 +138,12 @@ a.category-badge > span.badge:hover {
     z-index: 1000;
 }
 
+button[disabled], .btn[disabled] {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
