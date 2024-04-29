@@ -41,7 +41,7 @@
                     </p>
                     {% endif %}
                     {% if product.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ rating }} / 5</small>
+                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ average_rating }} / 5</small>
                     {% else %}
                         <small class="text-muted">No Rating</small>
                     {% endif %}
@@ -100,28 +100,45 @@
         </div>
     </div>
 
-    <div class="col-lg-5 col-md-6 container mt-3 mb-5">
-    <h2>Rate This Product</h2>
-    <form id="rating-form" method="post" class="mt-4">
-        {% csrf_token %}
-        <div class="form-group star-rating">
-            <label for="id_score" class="control-label">Choose a rating:</label>
-            <select name="score" id="id_score" class="form-control">
-                <option value="">Choose a rating</option>
-                <option value="1">⭐️ - Poor</option>
-                <option value="2">⭐️⭐️ - Fair</option>
-                <option value="3">⭐️⭐️⭐️ - Good</option>
-                <option value="4">⭐️⭐️⭐️⭐️ - Very Good</option>
-                <option value="5">⭐️⭐️⭐️⭐️⭐️ - Excellent</option>
-            </select>
+    <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+    <div class="ratings-container mt-5">
+        <h3>Ratings & Comments</h3>
+        {% for rating in ratings %}
+        <div class="rating mb-3">
+            <strong>{{ rating.user.username }}</strong>
+            <span class="">rated it {{ rating.score|add:"0" }}/5 </span>
+            <small class=""> {{ rating.created_at|date:"d M Y H:i" }}</small>
+            {% if rating.comment %}
+                <p>{{ rating.comment }}</p>
+            {% else %}
+                <p class="text-muted">No comment provided.</p>
+            {% endif %}
         </div>
-        <div class="form-group">
-            <label for="id_comment" class="control-label">Comment (optional):</label>
-            <textarea name="comment" id="id_comment" class="form-control"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary mb-5">Submit</button>
-    </form>
-</div>
+        {% empty %}
+            <p>No ratings yet. Be the first to rate this product!</p>
+        {% endfor %}
+    </div>
+        <h2>Rate This Product</h2>
+        <form id="rating-form" method="post" class="mt-4">
+            {% csrf_token %}
+            <div class="form-group star-rating">
+                <label for="id_score" class="control-label">Choose a rating:</label>
+                <select name="score" id="id_score" class="form-control">
+                    <option value="">Choose a rating</option>
+                    <option value="1">⭐️ - Poor</option>
+                    <option value="2">⭐️⭐️ - Fair</option>
+                    <option value="3">⭐️⭐️⭐️ - Good</option>
+                    <option value="4">⭐️⭐️⭐️⭐️ - Very Good</option>
+                    <option value="5">⭐️⭐️⭐️⭐️⭐️ - Excellent</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="id_comment" class="control-label">Comment (optional):</label>
+                <textarea name="comment" id="id_comment" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mb-5">Submit</button>
+        </form>
+    </div>
     
 {% endblock %}
 

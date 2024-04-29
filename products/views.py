@@ -67,29 +67,38 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show product details """
-    
-    print("Incoming product_id: ", product_id)  
     product = get_object_or_404(Product, pk=product_id)
+    ratings = product.ratings.all().order_by('-created_at')
+    form = RatingForm()
+
     if request.method == 'POST':
-        form = RatingForm(request.POST)
-        if form.is_valid():
-            rating = form.save(commit=False)
-            rating.user = request.user 
-            rating.product = product
-            rating.save()
-            messages.success(request, f'Thanks for your rating of product {product.name}')
-            return redirect('product_detail', product_id=product_id)
-    else:
-        form = RatingForm()
+        if request.user.is_authenticated:
+            form = RatingForm(request.POST)
+            if form.is_valid():
+                rating = form.save(commit=False)
+                rating.user = request.user
+                rating.product = product
+                rating.save()
+                messages.success(request, f'Thanks for your rating of product {product.name}')
+                return redirect('product_detail', product_id=product_id)
+            else:
+                messages.error(request, "There was an error with your submission.")
+        else:
+            messages.error(request, "You must be logged in to submit a rating.")
+            return redirect('account_login') 
+
+    average_rating = product.average_rating() if product.ratings.exists() else None
 
     context = {
         'product': product,
         'form': form,
-        'rating': product.average_rating,
+        'ratings': ratings,
+        'average_rating': average_rating,
     }
 
     return render(request, 'products/product_detail.html', context)
+
+
 
 
 def clearance_items(request):
