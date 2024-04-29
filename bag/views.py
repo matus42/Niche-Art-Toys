@@ -11,40 +11,48 @@ def view_bag(request):
 
 
 def add_to_bag(request, item_id):
-    """ Add a quantity of the specified product to the shopping bag """
-
+    """ Add a quantity of the specified product to the shopping bag, not exceeding stock availability. """
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
-    if item_id in list(bag.keys()):
-        bag[item_id] += quantity
-        messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
+    total_quantity = quantity + bag.get(item_id, 0)  # Total desired quantity including what's already in the bag
+
+    if total_quantity <= product.stock_quantity:
+        if item_id in bag:
+            bag[item_id] += quantity
+            messages.success(request, f'Updated {product.name} quantity to {bag[item_id]} in your bag.')
+        else:
+            bag[item_id] = quantity
+            messages.success(request, f'Added {product.name} to your bag.')
     else:
-        bag[item_id] = quantity
-        messages.success(request, f'Added {product.name} to your bag')
+        messages.error(request, f'Sorry, adding {total_quantity} units exceeds the available stock for {product.name}. Only {product.stock_quantity - bag.get(item_id, 0)} more can be added.')
 
     request.session['bag'] = bag
     return redirect(redirect_url)
 
 
+
 def adjust_bag(request, item_id):
-    """Adjust the quantity of the specified product to the specified amount"""
-    
+    """Adjust the quantity of the specified product to the specified amount, ensuring it does not exceed stock."""
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
-    if quantity > 0:
-        bag[item_id] = quantity
-        messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
+    if quantity <= product.stock_quantity:
+        if quantity > 0:
+            bag[item_id] = quantity
+            messages.success(request, f'Updated {product.name} quantity to {bag[item_id]} in your bag.')
+        else:
+            bag.pop(item_id, None)
+            messages.success(request, f'{product.name} has been removed from your bag.')
     else:
-        bag.pop(item_id, None)
-        messages.success(request, f'{product.name} has been removed from your bag')
+        messages.error(request, f'Cannot set quantity to {quantity}. Only {product.stock_quantity} units are available for {product.name}.')
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
+
 
 
 def remove_from_bag(request, item_id):
