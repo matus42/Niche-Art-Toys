@@ -100,71 +100,8 @@
         </div>
     </div>
 
-    <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-        <div class="ratings-container mt-5">
-            <h3>Ratings & Comments</h3>
-            {% for rating in ratings %}
-            <div class="rating mb-3" id="rating-block-{{ rating.id }}">
-                <strong>{{ rating.user.username }}</strong>
-                <span>rated it {{ rating.score|add:"0" }}/5</span>
-                <small>{{ rating.created_at|date:"d M Y H:i" }}</small>
-                <div id="comment-view-{{ rating.id }}">
-                    <p>{{ rating.comment|default:"No comment provided." }}</p>
-                    {% if user.is_authenticated and user == rating.user %}
-                        <button onclick="editComment({{ rating.id }})" class="btn btn-primary btn-sm">Edit</button>
-                        <form action="{% url 'delete_comment' product.id rating.id %}" method="post" style="display:inline;">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                        </form>
-                    {% endif %}
-                </div>
-                <div id="comment-edit-{{ rating.id }}" style="display:none;">
-                    <form action="{% url 'edit_comment' product.id rating.id %}" method="post">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="edit_score_{{ rating.id }}" class="control-label">Change Rating and Comment:</label>
-                            <select name="score" id="edit_score_{{ rating.id }}" class="form-control">
-                                <option value="1" {% if rating.score == 1 %}selected{% endif %}>⭐️ - Poor</option>
-                                <option value="2" {% if rating.score == 2 %}selected{% endif %}>⭐️⭐️ - Fair</option>
-                                <option value="3" {% if rating.score == 3 %}selected{% endif %}>⭐️⭐️⭐️ - Good</option>
-                                <option value="4" {% if rating.score == 4 %}selected{% endif %}>⭐️⭐️⭐️⭐️ - Very Good</option>
-                                <option value="5" {% if rating.score == 5 %}selected{% endif %}>⭐️⭐️⭐️⭐️⭐️ - Excellent</option>
-                            </select>
-                        </div>
-                        <textarea name="comment" class="form-control mb-2">{{ rating.comment }}</textarea>
-                        <button type="submit" class="btn btn-primary btn-sm">Update</button>
-                        <button type="button" onclick="cancelEdit({{ rating.id }})" class="btn btn-secondary btn-sm">Cancel</button>
-                    </form>
-                </div>
-            </div>
-            {% empty %}
-                <p>No ratings yet. Be the first to rate this product!</p>
-            {% endfor %}
-        </div>
+{% include 'products/includes/rating_and_comments.html'%}
 
-
-        <h2>Rate This Product</h2>
-        <form id="rating-form" method="post" class="mt-4">
-            {% csrf_token %}
-            <div class="form-group star-rating">
-                <label for="id_score" class="control-label">Choose a rating:</label>
-                <select name="score" id="id_score" class="form-control">
-                    <option value="">Choose a rating</option>
-                    <option value="1">⭐️ - Poor</option>
-                    <option value="2">⭐️⭐️ - Fair</option>
-                    <option value="3">⭐️⭐️⭐️ - Good</option>
-                    <option value="4">⭐️⭐️⭐️⭐️ - Very Good</option>
-                    <option value="5">⭐️⭐️⭐️⭐️⭐️ - Excellent</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="id_comment" class="control-label">Comment (optional):</label>
-                <textarea name="comment" id="id_comment" class="form-control"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary mb-5">Submit</button>
-        </form>
-    </div>
-    
 {% endblock %}
 
 {% block postloadjs %}
