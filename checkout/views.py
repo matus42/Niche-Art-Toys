@@ -6,6 +6,7 @@ from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
 from bag.contexts import bag_contents
+from django.db import transaction
 
 import stripe
 
@@ -84,12 +85,20 @@ def checkout(request):
     return render(request, template, context)
 
 
+@transaction.atomic
 def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+    
+    # Reduce stock quantity for each product in the order
+    for line_item in order.lineitems.all():
+        product = line_item.product
+        product.stock_quantity -= line_item.quantity
+        product.save()
+    
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
