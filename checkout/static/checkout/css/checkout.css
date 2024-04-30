@@ -32,3 +32,9 @@
     color: #4C3957;
     border: 1px solid #4C3957;
 }
+
+.order-confirmation-wrapper {
+    background-color: #fff;
+    border: 1px solid #4C3957 !important;
+    border-radius: 5px;
+}
