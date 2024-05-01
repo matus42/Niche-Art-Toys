@@ -7,6 +7,7 @@ from products.models import Product
 def view_bag(request):
     """ A view that renders the bag contents page """
 
+    request.session['show_bag_message'] = False
     return render(request, 'bag/bag.html')
 
 
@@ -22,14 +23,17 @@ def add_to_bag(request, item_id):
     if total_quantity <= product.stock_quantity:
         if item_id in bag:
             bag[item_id] += quantity
+            request.session['show_bag_message'] = True
             messages.success(request, f'Updated {product.name} quantity to {bag[item_id]} in your bag.')
         else:
             bag[item_id] = quantity
+            request.session['show_bag_message'] = True
             messages.success(request, f'Added {product.name} to your bag.')
     else:
         messages.error(request, f'Sorry, adding {total_quantity} units exceeds the available stock for {product.name}. Max {product.stock_quantity - bag.get(item_id, 0)} can be added.')
 
     request.session['bag'] = bag
+    
     return redirect(redirect_url)
 
 

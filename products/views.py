@@ -137,11 +137,12 @@ def view_wishlist(request):
     wishlist, created = Wishlist.objects.get_or_create(user=request.user)
     return render(request, 'products/wishlist.html', {
         'wishlist': wishlist,
-        'on_wishlist_page': True
         })
+
 
 @login_required
 def add_to_wishlist(request, product_id):
+    request.session['show_bag_message'] = False
     product = get_object_or_404(Product, pk=product_id)
     wishlist, created = Wishlist.objects.get_or_create(user=request.user)
     if product not in wishlist.products.all():
@@ -150,6 +151,7 @@ def add_to_wishlist(request, product_id):
     else:
         messages.info(request, f'{product.name} is already in your wishlist.')
     return redirect('product_detail', product_id=product_id)
+
 
 @login_required
 def remove_from_wishlist(request, product_id):

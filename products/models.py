@@ -26,7 +26,7 @@ class Product(models.Model):
     description = models.TextField()
     is_sold = models.BooleanField(default=False)  # The flag for sold items
     is_clearance = models.BooleanField(default=False, verbose_name='Clearance Item')
-    stock_quantity = models.IntegerField(default=1)  # Default quantity is 1 (unique item)
+    stock_quantity = models.IntegerField(default=1)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
