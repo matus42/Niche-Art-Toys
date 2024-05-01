@@ -39,6 +39,16 @@
     border-radius: 5px;
 }
 
+select,
+select option {
+    color: #4C3957;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}
+
 #loading-overlay {
 	display: none;
 	position: fixed;
