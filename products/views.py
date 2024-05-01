@@ -135,7 +135,10 @@ def clearance_items(request):
 @login_required
 def view_wishlist(request):
     wishlist, created = Wishlist.objects.get_or_create(user=request.user)
-    return render(request, 'products/wishlist.html', {'wishlist': wishlist})
+    return render(request, 'products/wishlist.html', {
+        'wishlist': wishlist,
+        'on_wishlist_page': True
+        })
 
 @login_required
 def add_to_wishlist(request, product_id):
