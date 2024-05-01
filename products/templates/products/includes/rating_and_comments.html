@@ -85,10 +85,8 @@
 
 <script>
 function setDeleteAction(action) {
-    // Set the form action to the delete endpoint
     var confirmButton = document.getElementById('confirmDelete');
     confirmButton.onclick = function() {
-        // Submit the form programmatically
         var form = document.createElement('form');
         form.method = 'post';
         form.action = action;
@@ -101,7 +99,6 @@ function setDeleteAction(action) {
         form.submit();
     };
 }
-
 $(document).ready(function() {
     $('#deleteConfirmationModal').on('hidden.bs.modal', function (e) {
         // Clear the onclick event when modal is closed to prevent form resubmission issues
