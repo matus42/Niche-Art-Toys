@@ -27,7 +27,7 @@ def add_to_bag(request, item_id):
             bag[item_id] = quantity
             messages.success(request, f'Added {product.name} to your bag.')
     else:
-        messages.error(request, f'Sorry, adding {total_quantity} units exceeds the available stock for {product.name}. Only {product.stock_quantity - bag.get(item_id, 0)} more can be added.')
+        messages.error(request, f'Sorry, adding {total_quantity} units exceeds the available stock for {product.name}. Max {product.stock_quantity - bag.get(item_id, 0)} can be added.')
 
     request.session['bag'] = bag
     return redirect(redirect_url)

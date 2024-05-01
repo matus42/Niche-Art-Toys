@@ -110,7 +110,7 @@ def delete_comment(request, product_id, comment_id):
         messages.error(request, "You do not have permission to delete this comment.")
     
     return redirect('product_detail', product_id=product_id)
-
+ 
 
 @login_required
 def edit_comment(request, product_id, rating_id):
