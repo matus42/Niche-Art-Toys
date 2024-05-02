@@ -115,6 +115,7 @@ def delete_comment(request, product_id, comment_id):
 @login_required
 def edit_comment(request, product_id, rating_id):
     rating = get_object_or_404(Rating, id=rating_id, product_id=product_id, user=request.user)
+    request.session['show_bag_message'] = False
     if request.method == 'POST':
         form = RatingForm(request.POST, instance=rating)
         if form.is_valid():
