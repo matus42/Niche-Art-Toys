@@ -2,12 +2,13 @@ from django.shortcuts import render,redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category, Rating, Wishlist
 from django.db.models.functions import Lower
 from django.db.models import Avg
 from .forms import RatingForm
 from django.contrib.auth.decorators import login_required
 
+from .models import Product, Category, Rating, Wishlist
+from .forms import ProductForm
 
 # Create your views here.
 
@@ -165,3 +166,14 @@ def remove_from_wishlist(request, product_id):
         messages.info(request, f'{product.name} was not in your wishlist.')
 
     return redirect('view_wishlist')
+
+
+def add_product(request):
+    """ Add a product to the store """
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
