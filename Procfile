@@ -1,0 +1,1 @@
+web: gunicorn Niche_art_toys.wsgi
