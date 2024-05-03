@@ -40,7 +40,7 @@
                         </a>
                     </p>
                     {% endif %}
-                    {% if product.rating %}
+                    {% if average_rating %}
                         <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ average_rating }} / 5</small>
                     {% else %}
                         <small class="text-muted">No Rating</small>
@@ -105,6 +105,7 @@
             </div>
         </div>
     </div>
+    
 
 {% include 'products/includes/rating_and_comments.html'%}
 
