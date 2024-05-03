@@ -86,9 +86,15 @@
                                                 <small class="text-muted">No Rating</small>
                                             {% endif %}
                                             {% if product.stock_quantity > 0 %}
-                                                <p class="text-success"><strong>Available: {{ product.stock_quantity }}</strong></p>
+                                                <p class="text-success mb-0"><strong>Available: {{ product.stock_quantity }}</strong></p>
                                             {% else %}
                                                 <p class="text-danger"><strong>Out of Stock</strong></p>
+                                            {% endif %}
+                                            {% if request.user.is_superuser %}
+                                                <small>
+                                                    <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                                </small>
                                             {% endif %}
                                         </div>
                                     </div>
