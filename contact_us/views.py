@@ -1,27 +1,27 @@
-from django.core.mail import send_mail
-from django.conf import settings
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
 from .forms import ContactForm
 
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            subject = form.cleaned_data['subject']
-            message = form.cleaned_data['message']
+            # Save the new contact to the database
+            contact_instance = form.save()
 
-            message_body = f"Received message from {name}, Email: {email}\n\n{message}"
-
+            # Prepare and send an email notification (optional)
+            message_body = f"Received message from {contact_instance.name}, Email: {contact_instance.email}\n\n{contact_instance.message}"
+            print("Attempting to send email")
             send_mail(
-                subject,
+                contact_instance.subject,
                 message_body,
                 settings.EMAIL_HOST_USER,
-                [settings.EMAIL_HOST_USER],
+                [settings.EMAIL_HOST_USER],  # Email recipient list
                 fail_silently=False,
             )
+            
             messages.success(request, 'Thank you for contacting us!')
             return redirect('contact')
     else:
