@@ -11,12 +11,48 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h2>Contact Us</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-black rounded-1 text-uppercase float-right">Send</button>
-    </form>
+<div class="container">
+    {% if request.user.is_superuser %}
+    <div class="admin-messages mt-5">
+        <h2>Admin: All Messages</h2>
+        <div class="table-responsive"> <!-- Make the table scrollable on small devices -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="d-none d-md-table-cell">Name</th>
+                        <th>Email</th>
+                        <th class="d-none d-md-table-cell">Subject</th>
+                        <th>Message</th>
+                        <th class="d-none d-md-table-cell">Received At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for message in contact_messages %}
+                    <tr>
+                        <td class="d-none d-md-table-cell">{{ message.name }}</td>
+                        <td>{{ message.email }}</td>
+                        <td class="d-none d-md-table-cell">{{ message.subject }}</td>
+                        <td>{{ message.message }}</td>
+                        <td class="d-none d-md-table-cell">{{ message.created_at|date:"d M Y H:i" }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5">No messages found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="form-container col-md-6 offset-md-3 mt-5 mb-5" style="max-width: 600px; margin: auto;">
+        <h2>Contact Us</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-black rounded-1 text-uppercase float-right">Send</button>
+        </form>
+    </div>
 </div>
 {% endblock %}

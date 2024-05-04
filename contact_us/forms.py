@@ -5,13 +5,13 @@ from .models import Contact
 
 class ContactForm(forms.ModelForm):
     class Meta:
-        model = Contact  # Linking form to Contact model
-        fields = ['name', 'email', 'subject', 'message']  # Specify fields to use from the model
+        model = Contact
+        fields = ['name', 'email', 'subject', 'message']
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Your Name *'}),
             'email': forms.EmailInput(attrs={'placeholder': 'Your Email *'}),
             'subject': forms.TextInput(attrs={'placeholder': 'Subject *'}),
-            'message': forms.Textarea(attrs={'placeholder': 'Your Message *', 'rows': 3}),
+            'message': forms.Textarea(attrs={'placeholder': 'Your Message *', 'rows': 5}),
         }
 
     def __init__(self, *args, **kwargs):
