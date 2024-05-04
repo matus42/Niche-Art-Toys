@@ -8,7 +8,7 @@
             <small>{{ rating.created_at|date:"d M Y H:i" }}</small>
             <div id="comment-view-{{ rating.id }}">
                 <p>{{ rating.comment|default:"No comment provided." }}</p>
-                {% if user.is_authenticated and user == rating.user %}
+                {% if user.is_authenticated and user == rating.user or user.is_superuser %}
                     <button onclick="editComment({{ rating.id }})" class="btn btn-primary btn-sm">Edit</button>
                     <form action="{% url 'delete_comment' product.id rating.id %}" method="post" style="display:inline;">
                         {% csrf_token %}

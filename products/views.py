@@ -105,7 +105,7 @@ def product_detail(request, product_id):
 def delete_comment(request, product_id, comment_id):
     comment = get_object_or_404(Rating, id=comment_id, product_id=product_id)
     
-    if request.user == comment.user:
+    if request.user.is_superuser or request.user == comment.user:
         comment.delete()
         messages.success(request, "Your comment has been deleted.")
     else:
@@ -116,7 +116,10 @@ def delete_comment(request, product_id, comment_id):
 
 @login_required
 def edit_comment(request, product_id, rating_id):
-    rating = get_object_or_404(Rating, id=rating_id, product_id=product_id, user=request.user)
+    if request.user.is_superuser:
+        rating = get_object_or_404(Rating, id=rating_id, product_id=product_id)
+    else:
+        rating = get_object_or_404(Rating, id=rating_id, product_id=product_id, user=request.user)
     request.session['show_bag_message'] = False
     if request.method == 'POST':
         form = RatingForm(request.POST, instance=rating)
@@ -124,6 +127,8 @@ def edit_comment(request, product_id, rating_id):
             form.save()
             messages.success(request, "Your rating and comment have been updated.")
             return redirect('product_detail', product_id=product_id)
+        else:
+            messages.error(request, "There was a problem with your submission. Please check the form for errors.")
     else:
         form = RatingForm(instance=rating)
     return redirect('product_detail', product_id=product_id)
