@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import ContactForm
 from .models import Contact
+from django.views.decorators.http import require_POST
 
 def contact(request):
     form = ContactForm(request.POST or None)
@@ -17,3 +18,19 @@ def contact(request):
         'form': form,
         'contact_messages': contact_messages  # Updated variable name as per previous discussion
     })
+
+
+@require_POST
+def delete_contact(request, contact_id):
+    if not request.user.is_superuser:
+        messages.error(request, "You are not authorized to perform this action.")
+        return redirect('contact')
+
+    try:
+        contact = Contact.objects.get(id=contact_id)
+        contact.delete()
+        messages.success(request, "Contact message deleted successfully.")
+    except Contact.DoesNotExist:
+        messages.error(request, "Contact message not found.")
+
+    return redirect('contact')
