@@ -9,13 +9,14 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Product, Category, Rating, Wishlist
 from .forms import ProductForm
+from bag.views import clean_shopping_bag
 
 # Create your views here.
 
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
-
+    clean_shopping_bag(request)
     products = Product.objects.all()
     query = None
     categories = None
@@ -121,6 +122,7 @@ def edit_comment(request, product_id, rating_id):
     else:
         rating = get_object_or_404(Rating, id=rating_id, product_id=product_id, user=request.user)
     request.session['show_bag_message'] = False
+    
     if request.method == 'POST':
         form = RatingForm(request.POST, instance=rating)
         if form.is_valid():
@@ -234,12 +236,16 @@ def edit_product(request, product_id):
 @login_required
 def delete_product(request, product_id):
     """ Delete a product from the store """
+    request.session['show_bag_message'] = False
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
     
-    product = get_object_or_404(Product, pk=product_id)
-    product.delete()
-    request.session['show_bag_message'] = False
-    messages.success(request, 'Product deleted!')
+    try:
+        product = Product.objects.get(pk=product_id)
+        product.delete()
+        messages.success(request, 'Product deleted!')
+    except Product.DoesNotExist:
+        messages.error(request, 'This product no longer exists.')
+    
     return redirect(reverse('products'))

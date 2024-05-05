@@ -3,11 +3,28 @@ from django.contrib import messages
 from products.models import Product
 
 # Create your views here.
+def clean_shopping_bag(request):
+    """Remove non-existent products from the shopping bag."""
+    bag = request.session.get('bag', {})
+    cleaned_bag = {}
+    has_changes = False
+
+    for item_id, quantity in bag.items():
+        if Product.objects.filter(id=item_id).exists():
+            cleaned_bag[item_id] = quantity
+        else:
+            has_changes = True
+            messages.error(request, "Some items in your bag were not found and have been removed.")
+
+    if has_changes:
+        request.session['bag'] = cleaned_bag
+
 
 def view_bag(request):
     """ A view that renders the bag contents page """
 
     request.session['show_bag_message'] = False
+    clean_shopping_bag(request)
     return render(request, 'bag/bag.html')
 
 

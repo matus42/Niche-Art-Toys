@@ -38,7 +38,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-
+        
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -128,7 +128,7 @@ def checkout(request):
     return render(request, template, context)
 
 
-@transaction.atomic
+
 def checkout_success(request, order_number):
     """
     Handle successful checkouts
