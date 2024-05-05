@@ -67,8 +67,10 @@
                                                         </button>
                                                     </div>
                                                     <input class="form-control form-control-sm qty_input" type="number"
-                                                        name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                                        name="quantity" value="{{ item.quantity }}" min="1"
+                                                        max="{{ item.product.stock_quantity }}"
                                                         data-item_id="{{ item.item_id }}"
+                                                        data-stock="{{ item.product.stock_quantity }}"
                                                         id="id_qty_{{ item.item_id }}">
                                                     <div class="input-group-append">
                                                         <button class="increment-qty btn btn-sm btn-black rounded-1"
@@ -81,8 +83,8 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <a class="update-link "><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                                        <a class="update-link "><i class="fas fa-sync-alt"></i></a>
+                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
