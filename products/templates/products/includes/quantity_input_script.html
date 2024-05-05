@@ -2,15 +2,25 @@
     // Function to update the disable state of the +/- buttons
     function updateButtonState(inputElement) {
         const currentValue = parseInt(inputElement.val());
+        const maxStock = parseInt(inputElement.data('stock'));  // Get max stock from data attribute
         const itemId = inputElement.data('item_id');
-        $(`#decrement-qty_${itemId}`).prop('disabled', currentValue < 2);
-        $(`#increment-qty_${itemId}`).prop('disabled', currentValue > 98);
+        $(`#decrement-qty_${itemId}`).prop('disabled', currentValue <= 1);
+        $(`#increment-qty_${itemId}`).prop('disabled', currentValue >= maxStock);
     }
 
-    // Handles click events for incrementing and decrementing quantities
     function handleQuantityChange(inputElement, increment) {
         const currentValue = parseInt(inputElement.val());
-        inputElement.val(currentValue + increment);
+        const maxStock = parseInt(inputElement.data('stock'));
+        let newValue = currentValue + increment;
+        if (newValue > maxStock) {
+            newValue = maxStock;  // Prevent incrementing beyond stock
+            $(inputElement).val(newValue);
+            updateButtonState(inputElement);
+            return;  // Exit function if trying to add more than in stock
+        } else if (newValue < 1) {
+            newValue = 1;  // Prevent decrementing below 1
+        }
+        $(inputElement).val(newValue);
         updateButtonState(inputElement);
     }
 
