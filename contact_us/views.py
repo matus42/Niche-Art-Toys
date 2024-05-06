@@ -6,17 +6,16 @@ from django.views.decorators.http import require_POST
 
 def contact(request):
     form = ContactForm(request.POST or None)
-    # Sort messages from newest to oldest by the 'created_at' field
     contact_messages = Contact.objects.order_by('-created_at') if request.user.is_superuser else None
 
     if request.method == 'POST' and form.is_valid():
         form.save()
-        messages.success(request, 'Thank you for contacting us!')
+        messages.success(request, 'Thank you for contacting us! We contact you through email as soon as possible.')
         return redirect('contact')
 
     return render(request, 'contact_us/contact.html', {
         'form': form,
-        'contact_messages': contact_messages  # Updated variable name as per previous discussion
+        'contact_messages': contact_messages
     })
 
 

@@ -181,6 +181,12 @@ input[name='q']::placeholder {
     right: 36px;
 }
 
+.btt-button {
+    bottom: 10px;
+    right: 70px;
+    cursor: pointer;
+}
+
 /* Convenience classes - colors copied from Bootstrap */
 .arrow-primary {
     border-bottom-color: #007bff !important;
@@ -356,9 +362,9 @@ input[name='q']::placeholder {
 }
 
 @media (max-width: 991px) {
-    .header-container {
+    /* .header-container {
         padding-top: 116px;
-    }
+    } */
 
     body {
         height: calc(100vh - 116px);
