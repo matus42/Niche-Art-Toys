@@ -4,13 +4,22 @@ from .forms import ContactForm
 from .models import Contact
 from django.views.decorators.http import require_POST
 
+
 def contact(request):
+    """
+    View function for handling the contact page.
+    """
     form = ContactForm(request.POST or None)
-    contact_messages = Contact.objects.order_by('-created_at') if request.user.is_superuser else None
+    contact_messages = (Contact.objects.order_by('-created_at')
+                        if request.user.is_superuser else None)
 
     if request.method == 'POST' and form.is_valid():
         form.save()
-        messages.success(request, 'Thank you for contacting us! We contact you through email as soon as possible.')
+        messages.success(
+            request,
+            'Thank you for contacting us!'
+            'We will contact you through email as soon as possible.'
+            )
         return redirect('contact')
 
     return render(request, 'contact_us/contact.html', {
@@ -21,8 +30,14 @@ def contact(request):
 
 @require_POST
 def delete_contact(request, contact_id):
+    """
+    View function for deleting a contact message.
+    This view requires the user to be a superuser.
+    """
     if not request.user.is_superuser:
-        messages.error(request, "You are not authorized to perform this action.")
+        messages.error(
+            request,
+            "You are not authorized to perform this action.")
         return redirect('contact')
 
     try:

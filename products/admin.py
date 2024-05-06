@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import Product, Category, Rating, Wishlist
 
-# Register your models here.
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
@@ -25,6 +24,7 @@ class CategoryAdmin(admin.ModelAdmin):
         'friendly_name',
         'name',
     )
+
 
 class RatingAdmin(admin.ModelAdmin):
     list_display = (

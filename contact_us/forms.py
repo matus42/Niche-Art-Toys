@@ -1,7 +1,8 @@
 from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Field, Submit
-from .models import Contact  
+from .models import Contact
+
 
 class ContactForm(forms.ModelForm):
     class Meta:
@@ -11,7 +12,8 @@ class ContactForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'placeholder': 'Your Name *'}),
             'email': forms.EmailInput(attrs={'placeholder': 'Your Email *'}),
             'subject': forms.TextInput(attrs={'placeholder': 'Subject *'}),
-            'message': forms.Textarea(attrs={'placeholder': 'Your Message *', 'rows': 5}),
+            'message': forms.Textarea(attrs={'placeholder': 'Your Message *',
+                                             'rows': 5}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -30,5 +32,6 @@ class ContactForm(forms.ModelForm):
         )
         # Update class for each field to ensure consistent styling
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-1 profile-form-input'
+            field.widget.attrs['class'] = (
+                'border-black rounded-1 profile-form-input')
             field.label = False
