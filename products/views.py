@@ -239,7 +239,7 @@ def remove_from_wishlist(request, product_id):
 @login_required
 def add_product(request):
     """
-    Add a product to the store 
+    Add a product to the store
     This view allows only superusers (store owners)
     to add products to the store.
     If the user is not a superuser, an error message is displayed.
