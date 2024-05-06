@@ -17,8 +17,8 @@ def contact(request):
         form.save()
         messages.success(
             request,
-            'Thank you for contacting us!'
-            'We will contact you through email as soon as possible.'
+            'Thank you for contacting us! '
+            'We will contact you by email as soon as possible.'
             )
         return redirect('contact')
 
