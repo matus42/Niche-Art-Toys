@@ -9,10 +9,11 @@
             <a class="logo-font font-weight-bold nav-link text-black mr-5 dropdown-toggle" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Products
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+            <div id="topnav" class="dropdown-menu border-1" aria-labelledby="all-products-link">
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
                 <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
+                <div class="dropdown-divider"></div>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
@@ -55,7 +56,7 @@
             <a class="logo-font font-weight-bold nav-link text-black mr-5 dropdown-toggle" href="#" id="socialDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                 Follow Us
             </a>
-            <div class="dropdown-menu" aria-labelledby="socialDropdown">
+            <div id="topnav" class="dropdown-menu" aria-labelledby="socialDropdown">
                 <a class="dropdown-item" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
                     Facebook <i class="fab fa-facebook-square"></i>
                 </a>
