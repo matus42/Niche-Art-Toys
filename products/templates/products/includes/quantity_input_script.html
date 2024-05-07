@@ -4,8 +4,8 @@
         const currentValue = parseInt(inputElement.val());
         const maxStock = parseInt(inputElement.data('stock'));  // Get max stock from data attribute
         const itemId = inputElement.data('item_id');
-        $(`#decrement-qty_${itemId}`).prop('disabled', currentValue <= 1);
-        $(`#increment-qty_${itemId}`).prop('disabled', currentValue >= maxStock);
+        $(`.decrement-qty_${itemId}`).prop('disabled', currentValue <= 1);
+        $(`.increment-qty_${itemId}`).prop('disabled', currentValue >= maxStock);
     }
 
     function handleQuantityChange(inputElement, increment) {
