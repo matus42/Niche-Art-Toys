@@ -227,6 +227,10 @@ input[name='q']::placeholder {
     overflow-y: auto;
 }
 
+#mobile-search {
+    background-color: transparent !important;
+}
+
 /* Allauth form formatting */
 
 .allauth-form-inner-content p {
@@ -312,21 +316,6 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
-/* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-
-    .header-container {
-        padding-top: 164px;
-    }
-}
-
 
 /* -------------------------------- Media Queries */
 
@@ -352,6 +341,7 @@ input[name='q']::placeholder {
     }
 }
 
+
 @media (max-width: 991px) {
     .header-container {
         padding-top: 78px;
@@ -360,12 +350,6 @@ input[name='q']::placeholder {
     body {
         height: calc(100vh - 116px);
     }
-}
-
-@media (max-width: 991px) {
-    /* .header-container {
-        padding-top: 116px;
-    } */
 
     body {
         height: calc(100vh - 116px);
