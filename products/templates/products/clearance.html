@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col text-center mt-3">
             <hr class="w-75 mb-1">
-            <h2 class="logo-font">Clearance Products -30%</h2>
+            <h2 class="logo-font">Clearance Products</h2>
             <hr class="w-75 mb-1">
         </div>
     </div>
@@ -39,7 +39,11 @@
                             <p class="mb-0"><strong>{{ product.name }}</strong></p>
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-left">
+                            {% if product.is_clearance %}
+                            <p class="lead mb-0 text-left font-weight-bold"><s class="text-danger">€{{ product.old_price }}</s> €{{ product.price }}</p>
+                            {% else %}
                             <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }}</p>
+                            {% endif %}
                             <small class="text-muted">No Rating</small>
                             {% if product.stock_quantity > 0 %}
                             <p class="text-success"><strong>Available: {{ product.stock_quantity }}</strong></p>

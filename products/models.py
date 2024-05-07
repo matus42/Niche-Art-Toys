@@ -28,6 +28,8 @@ class Product(models.Model):
                                        verbose_name='Clearance Item')
     stock_quantity = models.IntegerField(default=1)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    old_price = models.DecimalField(max_digits=6, decimal_places=2,
+                                    null=True, blank=True)
     rating = models.DecimalField(max_digits=6, decimal_places=2,
                                  null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
