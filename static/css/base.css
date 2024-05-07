@@ -71,7 +71,8 @@ body {
     border: 1px solid #4C3957 !important;
 }
 
-#topnav {
+#topnav,
+#topnav-mobile {
     background-color: #D9DFD8 !important;
     border-color: #4C3957 !important;
 }
