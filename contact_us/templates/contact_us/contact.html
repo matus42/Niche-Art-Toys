@@ -15,11 +15,11 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<main class="container">
     {% if request.user.is_superuser %}
-    <div class="admin-messages mt-5">
+    <section class="admin-messages mt-5">
         <h2>Admin: All Messages</h2>
-        <div class="table-responsive"> <!-- Make the table scrollable on small devices -->
+        <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -76,18 +76,18 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </section>
     {% endif %}
 
-    <div class="form-container col-md-6 offset-md-3 mt-5">
+    <section class="form-container col-md-6 offset-md-3 mt-5">
         <h2>Contact Us</h2>
         <form method="post">
             {% csrf_token %}
             {{ form|crispy }}
-            <button type="submit" class="btn btn-black rounded-1 text-uppercase float-right">Send</button>
+            <button type="submit" class="btn btn-black rounded-1 float-right" aria-label="Submit Message">Send</button>
             <div class="bottom-spacer"></div>
         </form>
-    </div>
-</div>
+    </section>
+</main>
 {% include 'includes/footer.html' %}
 {% endblock %}

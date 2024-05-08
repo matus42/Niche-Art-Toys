@@ -8,6 +8,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Discover a unique collection at Your Shop Name, featuring handcrafted toys, exquisite watercolor paintings, modern calligraphy pieces, and soft crochet toys designed to inspire and delight.">
+        <meta name="keywords" content="handcrafted toys, watercolor paintings, modern calligraphy, crochet toys, unique gifts, art toys, decorative crafts, home decor, children's toys, artistic gifts">
     {% endblock %}
 
     {% block extra_meta %}
@@ -41,7 +43,7 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
-        <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
+        <nav id="topnav" class="row pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
                     <h2 class="logo-font text-black my-0"><strong>Niche Art & Toys</strong></h2>
@@ -64,25 +66,25 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link user-options" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="text-black nav-link user-options" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="User Account Options">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
                                 <p class="my-0">My Account</p>
                             </div>
                         </a>
-                        <div class="dropdown-menu border-1" aria-labelledby="user-options">
+                        <nav class="dropdown-menu border-1" aria-labelledby="user-options" role=menubar>
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                     <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                                 {% endif %}
-                                <a href="{% url 'view_wishlist' %}" class="dropdown-item">Wishlist</a>
-                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                <a href="{% url 'view_wishlist' %}" class="dropdown-item" role="menuitem">Wishlist</a>
+                                <a href="{% url 'profile' %}" class="dropdown-item" role="menuitem">My Profile</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item" role="menuitem">Logout</a>
                             {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                <a href="{% url 'account_signup' %}" class="dropdown-item" role="menuitem">Register</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item" role="menuitem">Login</a>
                             {% endif %}
-                        </div>
+                        </nav>
                     </li>
                     <li class="list-inline-item">
                         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
@@ -100,9 +102,9 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </nav>
         <div class="row bg-white">
-            <nav id="topnav-mobile" class="navbar navbar-expand-lg navbar-light w-100">
+            <nav id="topnav-mobile" class="navbar navbar-expand-lg navbar-light w-100" aria-label="Main Navigation">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
