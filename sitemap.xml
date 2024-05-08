@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/accounts/login/</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/bag/</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/?sort=price&amp;direction=asc</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/?sort=rating&amp;direction=desc</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/?sort=category&amp;direction=asc</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/?category=crochet_toys</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/?category=used_toys</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/?category=crochet_toys,used_toys</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/?category=watercolor_paintings</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/?category=modern_calligraphy</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/?category=watercolor_paintings,modern_calligraphy</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/clearance/</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/contact/</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/101</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/102</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/103</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/97</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/96</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/98</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/99</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/105</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/108</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/104</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/106</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/107</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nichestore-c017fc4e2b94.herokuapp.com/products/?category=</loc>
+  <lastmod>2024-05-08T17:22:44+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>

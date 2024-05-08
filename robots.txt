@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /bag/
+Sitemap: https://nichestore-c017fc4e2b94.herokuapp.com/sitemap.xml
