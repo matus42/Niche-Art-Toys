@@ -1,3 +1,6 @@
+# Welcome to Niche Art & Toys!
+Niche Art & Toys is an independently owned bussiness offering a carefully curated selection of handcrafted toys, watercolor paintings, and modern calligraphy pieces. Our platform caters to art lovers, collectors, and those seeking the perfect, heartfelt gift.
+
 # **Table Of Contents**
 
 * [**Planning Phase**](#planning-phase)
@@ -43,6 +46,25 @@
 
 # Planning Phase
 
+## Strategy
+### Service Aims
+Our service aims focus on delivering exceptional value to our customers through:
+
+1. **Quality and Craftsmanship**: Ensuring every product meets high standards of quality and uniqueness.
+2. **Customer Experience**: Providing a seamless and satisfying shopping experience from browsing to checkout.
+3. **Sustainability**: Committing to eco-friendly practices in production and packaging to minimize our environmental impact.
+4. **Community Engagement**: Creating a vibrant community of artists and art lovers through interactive events and social media engagement.
+5. **Innovation**: Continuously improving and innovating our product offerings and user interface based on customer feedback and market trends.
+
+### Opportunities:
+The current market and technological landscape present several opportunities for Niche Art & Toys:
+
+1. **Growing Interest in Handcrafted Goods**: Capitalizing on the increasing consumer preference for handcrafted and artisan products over mass-produced items.
+2. **E-commerce Expansion**: Utilizing advancements in e-commerce technology to reach a broader audience globally and enhance user experience.
+3. **Social Media Marketing**: Leveraging powerful social media platforms and influencer partnerships to increase brand awareness and customer loyalty.
+4. **Personalization Trend**: Offering customized products and services to meet the rising demand for personalized shopping experiences.
+5. **Artistic Collaboration**: Expanding our product range by collaborating with emerging artists and designers to keep our offerings fresh and exciting.
+
 ## E-commerce Application Type
 Our platform operates on a Business-to-Consumer (B2C) model, focusing on direct sales between the business and individual consumers. This model is ideal for our niche of handmade crochet toys, used toys, and painted pictures, as it allows us to build personal connections with our customers and provide them with a tailored shopping experience. Here are some characteristics of our B2C model:
 - **Direct Interaction**: We engage directly with end users, not businesses, which simplifies the buying process and enhances user experience.
@@ -54,16 +76,12 @@ Our platform operates on a Business-to-Consumer (B2C) model, focusing on direct 
 This B2C setup allows us to effectively manage customer relationships and respond quickly to market trends and individual feedback, driving the growth of our online eShop.
 
 
-## Marketing Stratergy
+## Marketing Strategies
 
-## Overview
-This section outlines the marketing strategies for our eShop that specializes in selling handmade crochet toys, used toys, and painted pictures. We aim to attract and engage gift buyers, parents, collectors, and art enthusiasts through targeted digital marketing efforts.
-
-## User Analysis
+### User Analysis
 - **Target Audience**: Gift buyers, parents of young children, collectors, and art enthusiasts.
 - **Preferred Platforms**: Etsy, Pinterest, Instagram, Facebook.
 
-## Marketing Strategies
 
 ### 1. Social Media Marketing
 - **Platforms**: Facebook, Twitter, Instagram, Pinterest
