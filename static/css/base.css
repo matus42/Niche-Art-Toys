@@ -252,7 +252,7 @@ input[name='q']::placeholder {
 
 .allauth-form-inner-content input {
     border-color: #552C64;
-    border-radius: 1;
+    border-radius: 1px;
 }
 
 .allauth-form-inner-content label:not([for='id_remember']) {

@@ -1,39 +1,41 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **Table Of Contents**
 
-Welcome,
+* [**Planning Phase**](#planning-phase)
+  * [**Strategy**](#strategy)
+    * [**Service Aims:**](#service-aims)
+    * [**Opportunities:**](#opportunities)
+  * [**Scope**](#scope)
+  * [**Structure**](#structure)
+    * [**User Stories:**](#user-stories)
+  * [**Skeleton**](#skeleton)
+    * [**Wireframes:**](#wireframes)
+    * [**User Flow Diagram:**](#user-flow-diagram)
+    * [**Database Schema**](#database-schema)
+  * [**SEO considerations**](#seo-considerations)
+  * [**Surface**](#surface)
+    * [**Color Scheme:**](#color-scheme)
+    * [**Typography**:](#typography)
+  * [**E-commerce Application Type**](#e-commerce-application-type)
+  * [**Marketing Stratergy**](#marketing-stratergy)  
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+* [**Agile Development Process**](#agile-development-process)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+* [**Features**](#features)
+  
+* [**User Experience (UX)**](#user-experience-ux)
 
-## Codeanywhere Reminders
+  * [**Design Philosophy**](#design-philosophy)
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+* [**Technologies Used**](#technologies-used)
 
-`python3 -m http.server`
+  * [**Front-End Technologies:**](#front-end-technologies)
+  * [**Back-End Technologies:**](#back-end-technologies)
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+* [**Testing Phase**](#testing-phase)
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+* [**Deployment**](#deployment)
 
-`http_server`
+* [**Future Development**](#future-development)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
+* [**Credits**](#credits)
+  * [**Acknowledgements:**](#acknowledgements)
