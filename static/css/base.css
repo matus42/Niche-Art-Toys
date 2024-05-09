@@ -237,8 +237,8 @@ input[name='q']::placeholder {
     overflow-y: auto;
 }
 
-#mobile-search {
-    background-color: transparent !important;
+.mobile-search-background {
+    background-color: #D9DFD8 !important;
 }
 
 /* Allauth form formatting */

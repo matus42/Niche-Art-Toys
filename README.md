@@ -7,6 +7,8 @@ Niche Art & Toys is an independently owned bussiness offering a carefully curate
   * [**Strategy**](#strategy)
     * [**Service Aims:**](#service-aims)
     * [**Opportunities:**](#opportunities)
+  * [**E-commerce Application Type**](#e-commerce-application-type)
+  * [**Marketing Stratergy**](#marketing-stratergy)  
   * [**Scope**](#scope)
   * [**Structure**](#structure)
     * [**User Stories:**](#user-stories)
@@ -18,8 +20,6 @@ Niche Art & Toys is an independently owned bussiness offering a carefully curate
   * [**Surface**](#surface)
     * [**Color Scheme:**](#color-scheme)
     * [**Typography**:](#typography)
-  * [**E-commerce Application Type**](#e-commerce-application-type)
-  * [**Marketing Stratergy**](#marketing-stratergy)  
 
 * [**Agile Development Process**](#agile-development-process)
 
@@ -128,3 +128,63 @@ This B2C setup allows us to effectively manage customer relationships and respon
 ### Goals and Budget
 - **Objectives**: Increase brand visibility, drive online sales, expand the customer base, and build a strong community around our products.
 - **Budget Strategy**: Initiate with cost-effective methods like social media and content marketing, scaling into paid advertising as revenue increases.
+
+
+## Scope
+
+### Project Definition
+Niche Art & Toys aims to create an engaging online marketplace for art enthusiasts, collectors, and gift buyers. Our platform will offer handcrafted toys, watercolor paintings, and modern calligraphy pieces, focusing on providing high-quality, unique products.
+
+### Product Range
+- **Handcrafted Toys**: Specializing in crochet and fabric toys, perfect for children and collectors.
+- **Watercolor Paintings**: Offering original watercolor art, ranging from abstract to realistic styles.
+- **Modern Calligraphy Pieces**: Custom and pre-made calligraphy artworks ideal for home decor and gifts.
+
+### Functionalities
+- **E-commerce Capabilities**: Complete shopping cart functionality, product searches, user accounts, order management, and payment processing.
+- **User Accounts**: Registration, login/logout capabilities, profile management, wishlist and order history.
+- **Customer Interaction**: Product rating and comments, contact page.
+- **Administration**: Backend functionalities for inventory management.
+
+### Design
+- **Responsive Design**: Ensuring the platform is accessible on all devices and screen sizes.
+- **User Interface**: Intuitive navigation and attractive layout to enhance user experience.
+
+
+## Structure
+Niche Art & Toys is designed to cater to a diverse user base including art lovers, collectors, and gift buyers. It focuses on creating a user-friendly environment that ensures easy navigation and an intuitive user experience
+
+### User Stories
+
+#### As a Shopper, I want to:
+- **View a list of all products** to select items for purchase.
+- **Access detailed information on each product** to assess suitability.
+- **Identify deals and limited-time offers** to capitalize on discounts.
+- **See potential expenditures** to manage budget.
+- **Sort products by various attributes** like rating or price to find the best match.
+- **Sort through specific categories** to quickly find top products in an area of interest.
+- **Search for products by name or description** to locate specific items.
+- **See the results of searches and the quantity of matches** to assess options.
+- **Select the quantity of a product easily** when making purchases.
+- **Review items in the cart before purchasing** to verify the final order.
+- **Adjust quantities or remove items in the cart** for last-minute decisions.
+- **Enter payment information on a secure page** to ensure data safety.
+- **View a summary of the order upon completion** to confirm purchase details.
+- **Receive an email confirmation after purchase** to keep a record of the transaction.
+- **Add items to a Wishlist** to save for later or monitor price changes.
+- **Submit requests for custom art pieces** to acquire personalized art.
+
+#### As a Site User, I want to:
+- **Register for an account effortlessly** to create a personalized shopping experience.
+- **Log in or out with ease** to access the account without difficulty.
+- **Recover passwords smoothly** to regain access to the account if forgotten.
+- **Receive confirmation after signing up** to ensure the account is ready.
+- **Have a personal user profile** to track orders and save preferences.
+- **Access and submit the contact us form easily** to communicate queries or issues.
+
+#### As an Art Enthusiast, I want to:
+- **Register for art workshops or events** to engage with the art community and enhance skills.
+
+#### As a Store Owner, I want to:
+- **Manage product listings easily** to update inventory with new items, adjust existing listings, or remove outdated products.
+- **Promote art events** to build a community around the store and increase customer engagement.
