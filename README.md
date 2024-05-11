@@ -492,7 +492,7 @@ The beginning of this project was marked by a sense of apprehension due to its a
 
 - **Commitment to Iterative Notes:** One area I identified for improvement is in the documentation of each sprint. Previously, I did not maintain detailed notes during sprints, which sometimes made it challenging to track changes and understand decisions in hindsight. Moving forward, I will implement a systematic approach to note-taking after each iteration. This will enhance our ability to reflect, adjust, and plan more effectively.
 
-- **Strategic Planning and Resource Allocation:** Reflecting on the project, I recognize the need for better resource allocation and strategic planning. Certain aspects required more time and resources than anticipated. Enhanced planning will be a focus in future projects to ensure that we are prepared for and can efficiently manage complex tasks.
+- **Strategic Planning and Resource Allocation:** Reflecting on the project, I recognize the need for better resource allocation and strategic planning. Certain aspects required more time and resources than anticipated. Enhanced planning will be a focus in future projects to ensure that I'm prepared for and can efficiently manage complex tasks.
 
 #### Admiration for Agile's Flexibility
 Throughout this project, the flexibility of Agile has stood out as a key advantage. It allowed me to pivot as needed and respond to challenges without significant setbacks. This adaptability was not only crucial for project success but also instrumental in maintaining high my morale and fostering an environment of creative problem-solving.
@@ -569,3 +569,72 @@ The use of Agile methodology significantly enhanced project flexibility and resp
 - **As a Store Owner:** I want to promote my products to build a community around my store and increase customer engagement.
 - **As a Site User:** I want to easily access and submit the contact us form so that I can communicate my queries or issues and receive support.
 
+
+# User Experience (UX)
+
+## Design Philosophy
+At Niche Art & Toys, our design philosophy centers on creating an engaging and seamless shopping experience that reflects the uniqueness and craftsmanship of our products. We prioritize clarity, beauty, and functionality, making sure that each interaction on our platform is intuitive and enjoyable. Our goal is to make art and toy shopping accessible and appealing to everyone, regardless of their familiarity with online shopping.
+
+## Key UX Considerations
+
+### Intuitive Navigation
+- **Implementation**: Navigation is designed to be straightforward and easy to use. Categories are clearly labeled, and product search functionality is robust, allowing users to quickly find specific items or browse categories of interest.
+- **Impact**: This approach minimizes user effort and enhances satisfaction by making the discovery of products as simple and direct as possible.
+
+### Responsive Design
+- **Implementation**: Utilizing Bootstrap for front-end framework ensures that website is responsive and adjusts beautifully across all devices, from desktops to smartphones.
+- **Impact**: This ensures that all users have a consistent and enjoyable experience, whether they are at home or on the go, facilitating access from any device.
+
+### Accessibility
+- **Implementation**: We adhere to WCAG (Web Content Accessibility Guidelines) and use tools like WAVE to evaluate and enhance accessibility. This helps us identify and fix issues related to navigation, color contrast, text alternatives, and more.
+- **Impact**: These practices make platform usable for people with a wide range of disabilities, ensuring that everyone can explore, select, and purchase our unique products.
+
+### Feedback Loops
+- **Implementation**:The platform provides immediate, clear feedback for user interactions. Whether a customer adds an item to their cart, completes a purchase, or needs to fill out missing information on a form, they receive instant and understandable feedback.
+- **Impact**: Enhances user confidence and reduces frustration by ensuring users are always informed about the outcome of their actions and what steps they need to take next.
+
+## Future UX Goals
+As the website continue to grow, our commitment to delivering an outstanding user experience remains a top priority. Upcoming enhancements include:
+- **Personalized Shopping Experiences**: Leveraging user data to offer personalized product recommendations and content.
+- **Enhanced Mobile Experience**: Given the increasing prevalence of mobile shopping, we plan to further optimize our mobile interfaces to ensure faster loading times and more intuitive interactions.
+
+Our aim is not just to meet user expectations but to exceed them, continuously incorporating user feedback and the latest UX developments into our platform improvements.
+
+## Technologies Used
+
+### Front-End Technologies:
+- **HTML5**: Used for structuring the content and layout of the web pages.
+- **CSS3**: Utilized for styling the web pages, enabling responsive design.
+- **JavaScript**: Employed to add interactivity to the web pages.
+- **Bootstrap 4.6**: A front-end framework used for creating responsive and mobile-first websites.
+
+### Back-End Technologies:
+- **Django 3.2.25**: The core web framework used for building the project, offering robust security and scalability.
+- **Django Allauth 0.41.0**: Integrated for comprehensive authentication, registration, and account management capabilities.
+- **Django Countries 7.2.1**: Provides a country field for Django models and forms.
+- **Django Crispy Forms 1.14.0**: Used for rendering forms in a DRY way.
+- **Django Storages 1.14.2** & **Boto3 1.34.97**: Configured to link with AWS S3 for static and media storage, ensuring efficient content delivery.
+- **Psycopg2 2.9.9**: Utilized as the PostgreSQL database adapter for Django.
+- **Gunicorn 22.0.0**: Chosen as the WSGI HTTP server to run Python web applications.
+- **Stripe 9.4.0**: Integrated for handling secure payment processes.
+
+### APIs and Cloud Services:
+- **AWS S3 (via Boto3 and Django Storages)**: Used for storing static files and user-uploaded content.
+- **Stripe API**: For processing payments securely.
+
+### Development and Deployment Tools:
+- **Git**: Employed for version control to manage and track changes in the source code.
+- **Heroku**: Used for deploying the application to a live environment.
+- **dj-database-url 0.5.0**: Provides a Django utility that allows you to utilize the `DATABASE_URL` environment variable to configure your Django application.
+
+### Utilities and Extensions:
+- **Pillow 10.3.0**: The Python Imaging Library adds image processing capabilities to your Python interpreter.
+- **Python Dateutil 2.9.0.post0**: Provides powerful extensions to the standard datetime module.
+- **Typing Extensions 4.11.0**: Backported and experimental type hints for Python.
+- **Certifi 2024.2.2** & **Idna 3.7**: Certifi provides Mozilla's root certificate bundle, essential for validating SSL certificates, while Idna offers support for internationalized domain names.
+
+### Other Libraries:
+- **Requests 2.31.0**: Allows HTTP requests to be sent easily.
+- **Urllib3 2.2.1**: A powerful HTTP client for Python.
+- **SQLparse 0.5.0**: A non-validating SQL parser module for Python to clean up and parse SQL queries.
+- **OAuthlib 3.2.2** & **Requests-OAuthlib 2.0.0**: These libraries are used to implement OAuth1 and OAuth2 providers and integrate with Django.
