@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Product, Category, Rating, Wishlist
 from .forms import ProductForm
 from bag.views import clean_shopping_bag
+from django.db.models import Avg, DecimalField
+from django.db.models.functions import Coalesce
 
 
 def all_products(request):
@@ -27,7 +29,13 @@ def all_products(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
-            if sortkey == 'category':
+            elif sortkey == 'avg_rating':
+                products = products.annotate(
+                    avg_rating=Coalesce(Avg('ratings__score'),
+                                        0, output_field=DecimalField())
+                )
+                sortkey = 'avg_rating'
+            elif sortkey == 'category':
                 sortkey = 'category__name'
 
             if 'direction' in request.GET:
