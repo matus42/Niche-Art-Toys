@@ -638,3 +638,174 @@ Our aim is not just to meet user expectations but to exceed them, continuously i
 - **Urllib3 2.2.1**: A powerful HTTP client for Python.
 - **SQLparse 0.5.0**: A non-validating SQL parser module for Python to clean up and parse SQL queries.
 - **OAuthlib 3.2.2** & **Requests-OAuthlib 2.0.0**: These libraries are used to implement OAuth1 and OAuth2 providers and integrate with Django.
+
+
+# Features
+### Navbar Dropdown Menus Overview
+
+| Main Menu Item | Dropdown Links               | Description                                           |
+|----------------|------------------------------|-------------------------------------------------------|
+| Search Bar     | -                            | A text field allowing users to search for art, toys, and more |
+| My Profile     | My Profile                   | View and edit the user's profile                      |
+|                | Wishlist                     | Access the user's wishlist                            |
+|                | Logout                       | Log out of the current user session                   |
+|                | Register (Non-authenticated) | Navigate to the user registration page                |
+|                | Login (Non-authenticated)    | Navigate to the login page for existing users         |
+| Shopping Bag   | -                            | View the contents of the shopping bag and total cost  |
+| All Products   | By Price                     | Sort products by price in ascending order             |
+|                | By Rating                    | Sort products by rating in descending order           |
+|                | By Category                  | Sort products by category in alphabetical order       |
+|                | All Products                 | View all products                                     |
+| Toys           | Crochet Toys                 | View crochet toys only                                |
+|                | Used Toys                    | View used toys only                                   |
+|                | All Toys                     | View all toys including all subcategories             |
+| Art            | Watercolour Paintings        | View watercolor paintings only                        |
+|                | Modern Calligraphy           | View modern calligraphy artworks only                 |
+|                | All Art                      | View all art items across specified categories        |
+| Clearance      | -                            | View clearance items                                  |
+| Contact Us     | -                            | Navigate to the contact page                          |
+| Follow Us      | Facebook                     | Link to our Facebook page                             |
+|                | Twitter                      | Link to our Twitter page                              |
+|                | Instagram                    | Link to our Instagram page                            |
+|                | Pinterest                    | Link to our Pinterest page                            |
+
+#### Desktop View
+![Main Navabar](documentation/features/main_navbar.png)
+
+#### Mobile View
+![Mobile Navabar](documentation/features/mobile_navbar.png)
+
+#### Footer
+- Newsletter subscription, social media links and privacy policy.
+- When a new user subscribes to the email newsletter, the admin can view their details through the Mailchimp "Audience" panel.
+
+![Footer](documentation/features/footer.png)
+
+#### Home Page
+- When a user clicks "Shop Now," they are directed to the product page. 
+
+![Home Page](documentation/features/home_page.png)
+
+#### Registration
+- Users who don't have an account can sign up by filling out a registration form.
+- A confirmation email is sent to verify their email address.
+- Once registered, users can log in using either their username or email along with their password.
+- If a user forgets their password, they can easily initiate a password reset by entering their email address. A link to reset the password will then be sent to their email.
+
+![Sign Up](documentation/features/signup.png)
+
+![Login](documentation/features/login.png)
+
+![Password Reset](documentation/features/password_reset.png)
+
+#### Main Page
+- Product Display: The main page showcases all listed products, each presented within its own card. This includes essential details such as the product's name, price, category, and rating.
+- Sorting Options: Users can sort products based on various criteria, enhancing the shopping experience by allowing them to easily find products that meet their preferences.
+- Availability Status: Each product card displays its availability, informing users about which items are in stock.
+- Admin Features: For users logged in as admins, each product card includes options to edit or delete products, facilitating easy management directly from the main page.
+
+![Main Page](documentation/features/main_page.png)
+
+- Clearance Setup: Admins can manually set products to clearance by editing the product details. They calculate a 30% discount off the original price, enter this new sale price in the product edit form, and leave the original price visibly crossed out to show the discount.
+- Stock Count: The system tracks the available stock for each product. When a product's stock reaches zero, it is automatically marked as "Out of Stock," and the "Add to Cart" button is disabled to prevent further purchases. This ensures that product availability is always accurately represented to users.
+
+![out of stock & clearence](documentation/features/out&clearence.png)
+
+#### Clearence Page
+- Dedicated Clearance Page: Users can access clearance products through a dedicated link in the main navbar. This page aggregates all products currently on clearance.
+- Product Details: Clicking on a product redirects the user to its detailed product page, where they can view comprehensive information about the item.
+
+![clearence](documentation/features/clearence.png)
+
+#### Product Detail
+- Detailed View: The product detail page offers a comprehensive view of individual items, showcasing high-quality images and detailed descriptions.
+- Stock Management: Users can adjust the purchase quantity, but only up to the available stock level. This ensures that orders reflect current inventory limits.
+- Wishlist Integration: For logged-in users, there is an option to add items to their wishlist. This feature facilitates easy access to preferred items for future purchases.
+- When a user adds an item to their shopping bag, a toast notification appears, providing a brief summary of their current bag contents and a direct link to proceed to checkout. This notification displays the total cost (excluding delivery), with a prompt encouraging the user to spend more to qualify for free next-day delivery. Users can either click on the notification to be taken directly to the checkout page or close the notification. If not manually closed, the notification automatically fades away after 15 seconds, ensuring a smooth and shopping experience.
+
+![Product Detail](documentation/features/product_detail.png)
+
+#### Product Rating
+- Logged-in users have the ability to rate products and optionally add comments on the product detail page.
+- All visitors can view ratings and comments.
+- Users who have submitted a rating or comment can edit or delete their own entries. If a user chooses to delete a rating, a confirmation modal appears to ensure the action is intentional, preventing accidental deletions.
+- Admin Privileges: Admins can edit or delete any ratings and comments, ensuring the ability to manage content site-wide effectively.
+- Upon submitting a rating, users receive a toast notification confirming the action, which enhances the interactive experience and provides immediate feedback on the submission process.
+- The average rating for each product is dynamically updated based on user submissions, and this rating is displayed on the product listing.
+
+![Rating](documentation/features/rating.png)
+
+![Rating](documentation/features/rating_detail.png)
+
+#### Shopping Bag
+- Users can access their shopping bag by clicking on the shopping bag icon located in the upper right corner of the page, or via the toast message that appears when an item is added to the bag.
+- Users can adjust the quantity of products directly within the shopping bag. The maximum quantity is limited to the available stock to ensure order accuracy.
+- The shopping bag page displays the subtotal, delivery charges, and the grand total. It also informs users how much more they need to spend to qualify for free delivery, encouraging larger purchases. A 'Secure Checkout' button leads users to complete their transactions.
+
+![Bag](documentation/features/bag.png)
+
+- On mobile devices, the shopping bag layout is optimized for usability. The total cost, including the bag total and delivery charges, is displayed at the top of the page to ensure visibility without the need to scroll through potentially long product lists.
+
+![Mobile Bag](documentation/features/bag_mobile.png)
+
+#### Checkout
+
+- Users are required to fill out a form with their personal and delivery information to complete their orders. Fields include full name, email address, phone number, address, town or city, country, and postal code.
+- Users who are logged in have the option to save their delivery information to their profile for faster future checkouts.
+- The site uses Stripe in test mode for secure credit card processing. Users can enter the test card number 4242 4242 4242 4242 for payment simulations, with any future expiry date and CVC code.
+- Adjust Bag: Allows users to return to their shopping bag to make changes before finalizing the purchase.
+- Complete Order: Finalizes the transaction, charging the provided payment method.
+
+![Checkout](documentation/features/checkout.png)
+
+- Upon successful completion of an order, users are directed to a "Thank You" page which displays a comprehensive summary of their order. This includes details such as the order number, order date, item(s) purchased with quantities and price, delivery address, and the grand total.
+- Simultaneously, a toast message informs the user that the order has been successfully processed and a confirmation email has been sent to their registered email address.
+- An email confirmation provides all the relevant order details and is sent automatically to ensure that the user has a record of their purchase.
+- Registered users can view and manage their past orders by navigating to the "My Profile" section of the website, enhancing their experience and providing easy access to their transaction history.
+- Users are encouraged to continue shopping with a button linking back to the product pages, facilitating ongoing engagement and purchases.
+
+![Checkout Success](documentation/features/checkout_success.png)
+
+![Checkout](documentation/features/checkout_mail.png)
+
+#### My Profile 
+
+- Registered users can access their profile under "My Account" where they can view and update their default delivery information. The form is pre-filled with the details entered during previous checkouts, streamlining the process for future purchases.
+- Users can view a summary of their past orders including order numbers, dates, items purchased, and totals. Clicking on an order number reopens the order confirmation page for that specific transaction, providing easy access to past order details.
+- Users have the ability to update their personal and delivery information at any time. Changes are saved and will be used for future transactions.
+
+![My Profile](documentation/features/profile.png)
+
+#### Contact Us
+- Users can reach out via a user-friendly contact form by providing their name, email, subject, and message.
+- Upon submission, users receive an immediate toast notification confirming that their message has been successfully sent and that they will be contacted by email shortly.
+- Admin can review these messages directly from their dashboard and has ability to delete messages
+
+![Contact Us](documentation/features/contact_us.png)
+
+![Confirmation](documentation/features/contact_confirm.png)
+
+![Contact Us Admin](documentation/features/contact_admin.png)
+
+#### Wishlist
+- Registered users can easily add products to their Wishlist, which they can access through the "My Account/Wishlist" section.
+- Each item in the Wishlist is displayed as a product card, which includes important details such as product name, price, and available stock.
+- Users can add items directly to their shopping bag from the Wishlist.
+- Items can be removed from the Wishlist if the user decides against purchasing them or wishes to declutter their list.
+
+![Wishlist](documentation/features/wishlist.png)
+
+#### Admin Product Management
+- Admin can add new products through the 'Product Management' section accessible from the admin dashboard.
+- If no image is uploaded for the product, a placeholder image is automatically assigned.
+- Upon successful addition of a product, a toast notification confirms the action with the message "Successfully added product!"
+- Admins have the full capability to edit or delete any product listed on the site. This allows for direct control over inventory and product details directly from the admin dashboard.
+
+![Product Management](documentation/features/admin_addproduct.png)
+
+![Product Management](documentation/features/admin_addproduct2.png)
+
+#### Admin Panel 
+- Superusers in the admin panel have full access to all aspects of the site, including product details, orders, user accounts, and system settings. This centralized control ensures that admins can effectively manage and oversee the entire operation of the online store from a single interface.
+
+![Admin Panel](documentation/features/admin_panel.png)

@@ -41,7 +41,7 @@
                     {% endif %}
                     {% if product.category %}
                     <p class="small mt-1 mb-0">
-                        <a href="{% url 'products' %}?category={{ category.name }}">
+                        <a href="{% url 'products' %}?category={{ product.category.name }}">
                             <i class="fa-solid fa-paperclip mr-1"></i>{{ product.category.friendly_name }}
                         </a>
                     </p>
@@ -102,9 +102,9 @@
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
-                                    <span class="text-uppercase">Keep Shopping</span>
+                                    <span class="text-uppercase" aria-label="Keep shopping">Keep Shopping</span>
                                 </a>
-                                <input type="submit" class="btn btn-black rounded-1 text-uppercase mt-5" value="Add to Bag" {% if product.stock_quantity == 0 %}disabled{% endif %}>
+                                <input type="submit" class="btn btn-black rounded-1 text-uppercase mt-5" value="Add to Bag" aria-label="Add to bag" {% if product.stock_quantity == 0 %}disabled{% endif %}>
                             </nav>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>

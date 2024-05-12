@@ -84,7 +84,7 @@ def adjust_bag(request, item_id):
             messages.success(
                 request,
                 f'Updated {product.name} quantity to {bag[item_id]}'
-                f'in your bag.'
+                f' in your bag.'
                 )
         else:
             bag.pop(item_id, None)
