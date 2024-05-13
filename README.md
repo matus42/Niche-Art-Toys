@@ -21,24 +21,15 @@ Niche Art & Toys is an independently owned bussiness offering a carefully curate
 * [**Marketing Strategies**](#marketing-strategies)  
 * [**SEO considerations**](#seo-considerations)
 * [**Agile Development Process**](#agile-development-process)
-
 * [**Features**](#features)
-  
 * [**User Experience (UX)**](#user-experience-ux)
-
   * [**Design Philosophy**](#design-philosophy)
-
 * [**Technologies Used**](#technologies-used)
-
   * [**Front-End Technologies:**](#front-end-technologies)
   * [**Back-End Technologies:**](#back-end-technologies)
-
 * [**Testing Phase**](#testing-phase)
-
 * [**Deployment**](#deployment)
-
 * [**Future Development**](#future-development)
-
 * [**Credits**](#credits)
   * [**Acknowledgements:**](#acknowledgements)
 
@@ -631,7 +622,6 @@ Our aim is not just to meet user expectations but to exceed them, continuously i
 - **Pillow 10.3.0**: The Python Imaging Library adds image processing capabilities to your Python interpreter.
 - **Python Dateutil 2.9.0.post0**: Provides powerful extensions to the standard datetime module.
 - **Typing Extensions 4.11.0**: Backported and experimental type hints for Python.
-- **Certifi 2024.2.2** & **Idna 3.7**: Certifi provides Mozilla's root certificate bundle, essential for validating SSL certificates, while Idna offers support for internationalized domain names.
 
 ### Other Libraries:
 - **Requests 2.31.0**: Allows HTTP requests to be sent easily.
@@ -639,6 +629,11 @@ Our aim is not just to meet user expectations but to exceed them, continuously i
 - **SQLparse 0.5.0**: A non-validating SQL parser module for Python to clean up and parse SQL queries.
 - **OAuthlib 3.2.2** & **Requests-OAuthlib 2.0.0**: These libraries are used to implement OAuth1 and OAuth2 providers and integrate with Django.
 
+### Additional Front-End Components:
+- **Meta Tags and SEO**: Used for SEO optimization and metadata management.
+- **Google Fonts**: Integrated to enhance typography.
+- **Static Files**: Managed using Django's static files management system.
+- **JavaScript Libraries**: Utilized for additional functionalities and interactive features.
 
 # Features
 ### Navbar Dropdown Menus Overview
