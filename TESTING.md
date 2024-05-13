@@ -107,3 +107,12 @@
 - Profiles view
 
 ![Profiles View](documentation/testing/profile_views.png)
+
+
+## WAVE Evaluation Tool
+- There are issues with headings being skipped or not starting with an h1 as the first heading, which can disrupt the page structure.
+- There are errors related to empty form labels; placeholders are being used to describe form fields.
+
+![wave](documentation/testing/wave_home.png)
+
+## Lighthouse Reports
