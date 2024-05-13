@@ -5,6 +5,9 @@ from .models import Contact
 
 
 class ContactForm(forms.ModelForm):
+    """
+    Form for handling user submissions through the Contact Us page.
+    """
     class Meta:
         model = Contact
         fields = ['name', 'email', 'subject', 'message']
@@ -30,7 +33,6 @@ class ContactForm(forms.ModelForm):
             Field('message', css_class='stripe-style-input'),
             Submit('submit', 'Send', css_class='btn btn-primary')
         )
-        # Update class for each field to ensure consistent styling
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = (
                 'border-black rounded-1 profile-form-input')

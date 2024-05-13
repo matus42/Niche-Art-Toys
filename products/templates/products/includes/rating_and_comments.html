@@ -9,10 +9,10 @@
             <div id="comment-view-{{ rating.id }}">
                 <p>{{ rating.comment|default:"No comment provided." }}</p>
                 {% if user.is_authenticated and user == rating.user or user.is_superuser %}
-                    <button onclick="editComment({{ rating.id }})" class="btn btn-primary btn-sm">Edit</button>
+                    <button onclick="editComment({{ rating.id }})" class="btn btn-primary btn-sm" aria-label="Edit comment">Edit</button>
                     <form action="{% url 'delete_comment' product.id rating.id %}" method="post" style="display:inline;">
                         {% csrf_token %}
-                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmationModal" onclick="setDeleteAction('{% url 'delete_comment' product.id rating.id %}')">Delete</button>
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmationModal" onclick="setDeleteAction('{% url 'delete_comment' product.id rating.id %}')" aria-label="Delete comment">Delete</button>
 
                     </form>
                 {% endif %}
@@ -32,9 +32,9 @@
                         </select>
                     </div>
                     <textarea name="comment" class="form-control mb-2">{{ rating.comment }}</textarea>
-                    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                    <button type="submit" class="btn btn-primary btn-sm" aria-label="Update comment">Update</button>
                     <button type="button" onclick="cancelEdit({{ rating.id }})"
-                        class="btn btn-secondary btn-sm">Cancel</button>
+                        class="btn btn-secondary btn-sm" aria-label="Cancel editing">Cancel</button>
                 </form>
             </div>
         </div>

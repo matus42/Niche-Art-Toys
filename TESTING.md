@@ -72,4 +72,38 @@
 
 
 ### Javscript
-- Tested my js through JSHint
+- Tested my js through JSHint 
+
+![js](documentation/testing/js1.png)
+
+![js](documentation/testing/js2.png)
+
+![js](documentation/testing/js3.png)
+
+![js](documentation/testing/js4.png)
+
+![js](documentation/testing/js5.png)
+
+- Stripe js
+
+![Stripe js](documentation/testing/stripe_js.png)
+
+
+### Python
+- I checked all Python files with Flake8 locally and the CI Python linter. Both indicated that only system files have errors, which we shouldn't alter. All other files passed without any issues.
+
+- Bag view
+
+![Bag View](documentation/testing/bag_views.png)
+
+- Checkout view
+
+![Checkout View](documentation/testing/checkout_view.png)
+
+- Contact Us view
+
+![Contact Us View](documentation/testing/contact_view.png)
+
+- Profiles view
+
+![Profiles View](documentation/testing/profile_views.png)

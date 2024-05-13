@@ -76,7 +76,8 @@
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button class="decrement-qty btn btn-black rounded-1 decrement-qty_{{ product.id }}" 
-                                                data-item_id="{{ product.id }}" {% if product.stock_quantity == 0 %}disabled{% endif %}>
+                                                data-item_id="{{ product.id }}" {% if product.stock_quantity == 0 %}disabled{% endif %}
+                                                aria-label="Decrease quantity for {{ product.name }}">
                                                 <span class="icon">
                                                     <i class="fas fa-minus"></i>
                                                 </span>
@@ -84,10 +85,11 @@
                                         </div>
                                         <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
                                         max="{{ product.stock_quantity }}" data-item_id="{{ product.id }}" data-stock="{{ product.stock_quantity }}"
-                                        id="id_qty_{{ product.id }}" {% if product.stock_quantity == 0 %}disabled{% endif %}>
+                                        id="id_qty_{{ product.id }}" {% if product.stock_quantity == 0 %}disabled{% endif %} aria-label="quantity">
                                         <div class="input-group-append">
                                             <button class="increment-qty btn btn-black rounded-1 increment-qty_{{ product.id }}"
-                                                data-item_id="{{ product.id }}" {% if product.stock_quantity == 0 %}disabled{% endif %}>
+                                                data-item_id="{{ product.id }}" {% if product.stock_quantity == 0 %}disabled{% endif %}
+                                                aria-label="Increase quantity for {{ product.name }}">
                                                 <span class="icon">
                                                     <i class="fas fa-plus"></i>
                                                 </span>
