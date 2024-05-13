@@ -156,10 +156,9 @@
 {% block postloadjs %}
     {{ block.super }}
     <script>
-		$('.btt-link').click(function(e) {
-			window.scrollTo(0,0)
-		})
-    
+        $('.btt-link').click(function(e) {
+            window.scrollTo(0,0);
+        });
 
         function setDeleteAction(action) {
             var confirmButton = document.getElementById('confirmDelete');
@@ -178,34 +177,32 @@
             };
         }
 
-$(document).ready(function() {
-    $('#deleteProductModal').on('hidden.bs.modal', function (e) {
-        // Clear the onclick event when modal is closed to prevent resubmission issues
-        document.getElementById('confirmDelete').onclick = null;
-    });
-});
+        // Handling modal close event to prevent resubmission issues
+        $(document).ready(function() {
+            $('#deleteProductModal').on('hidden.bs.modal', function (e) {
+                document.getElementById('confirmDelete').onclick = null;
+            });
 
-	</script>
-    
-    <script>
-    $('#sort-selector').change(function() {
-        var currentUrl = new URL(window.location);
-        var selectedVal = $(this).val();
+            // Sorting functionality handling based on dropdown selection
+            $('#sort-selector').change(function() {
+                var currentUrl = new URL(window.location);
+                var selectedVal = $(this).val();
 
-        if (selectedVal !== "reset") {
-            let lastUnderscoreIndex = selectedVal.lastIndexOf('_');
-            let sort = selectedVal.substring(0, lastUnderscoreIndex);
-            let direction = selectedVal.substring(lastUnderscoreIndex + 1);
+                if (selectedVal !== "reset") {
+                    let lastUnderscoreIndex = selectedVal.lastIndexOf('_');
+                    let sort = selectedVal.substring(0, lastUnderscoreIndex);
+                    let direction = selectedVal.substring(lastUnderscoreIndex + 1);
 
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction);
-        } else {
-            // Reset sorting parameters
-            currentUrl.searchParams.delete("sort");
-            currentUrl.searchParams.delete("direction");
-        }
+                    currentUrl.searchParams.set("sort", sort);
+                    currentUrl.searchParams.set("direction", direction);
+                } else {
+                    // Reset sorting parameters
+                    currentUrl.searchParams.delete("sort");
+                    currentUrl.searchParams.delete("direction");
+                }
 
-        window.location.replace(currentUrl.href);
-    });
-</script>
+                window.location.replace(currentUrl.href);
+            });
+        });
+    </script>
 {% endblock %}

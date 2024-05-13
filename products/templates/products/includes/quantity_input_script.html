@@ -4,8 +4,8 @@
         const currentValue = parseInt(inputElement.val());
         const maxStock = parseInt(inputElement.data('stock'));  // Get max stock from data attribute
         const itemId = inputElement.data('item_id');
-        $(`.decrement-qty_${itemId}`).prop('disabled', currentValue <= 1);
-        $(`.increment-qty_${itemId}`).prop('disabled', currentValue >= maxStock);
+        $(`.decrement-qty[data-item_id="${itemId}"]`).prop('disabled', currentValue <= 1);
+        $(`.increment-qty[data-item_id="${itemId}"]`).prop('disabled', currentValue >= maxStock);
     }
 
     function handleQuantityChange(inputElement, increment) {
@@ -14,33 +14,33 @@
         let newValue = currentValue + increment;
         if (newValue > maxStock) {
             newValue = maxStock;  // Prevent incrementing beyond stock
-            $(inputElement).val(newValue);
-            updateButtonState(inputElement);
-            return;  // Exit function if trying to add more than in stock
         } else if (newValue < 1) {
             newValue = 1;  // Prevent decrementing below 1
         }
-        $(inputElement).val(newValue);
+        inputElement.val(newValue);
         updateButtonState(inputElement);
     }
 
     $(document).ready(function() {
-        // Initialize button states
-        $('.qty_input').each(function() {
-            updateButtonState($(this));
-        }).change(function() {
-            updateButtonState($(this));
-        });
-
-        $('.increment-qty').click(function(e) {
+        // Delegate event for increment button clicks
+        $(document).on('click', '.increment-qty', function(e) {
             e.preventDefault();
             handleQuantityChange($(this).closest('.input-group').find('.qty_input'), 1);
         });
 
-        $('.decrement-qty').click(function(e) {
+        $(document).on('click', '.decrement-qty', function(e) {
             e.preventDefault();
             handleQuantityChange($(this).closest('.input-group').find('.qty_input'), -1);
         });
+
+        // Update button states on change and initialize them
+        $(document).on('change', '.qty_input', function() {
+            updateButtonState($(this));
+        });
+
+        // Initial state setup for each input
+        $('.qty_input').each(function() {
+            updateButtonState($(this));
+        });
     });
-    
 </script>
