@@ -298,6 +298,9 @@ This B2C setup allows us to effectively manage customer relationships and respon
   - Seasonal promotions highlighted through Facebook Stories and Pinterest boards.
   - Active community engagement by responding to comments and encouraging shares.
 
+![Facebook Page](documentation/features/facebook_page1.png)
+![Facebook Page](documentation/features/facebook_page2.png)  
+
 ### 2. Content Marketing
 - **Method**: Blogging and informative articles.
 - **Content Ideas**:
