@@ -153,6 +153,15 @@ input[name='q']::placeholder {
     color: #a2a39d;
 }
 
+.text-success {
+    color: #1A652C !important;
+}
+
+.category-contrast,
+.text-info {
+    color: #0F5096 !important;
+}
+
 /* ------------------------------- chimpmail */
 
 #mc_embed_signup { 
