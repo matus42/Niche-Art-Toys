@@ -9,7 +9,7 @@ class ProductAdmin(admin.ModelAdmin):
         'stock_quantity',
         'category',
         'price',
-        'rating',
+        'display_average_rating',
         'image',
         'is_clearance',
     )
@@ -17,6 +17,11 @@ class ProductAdmin(admin.ModelAdmin):
     ordering = ('sku',)
     list_editable = ('is_clearance', 'stock_quantity',)
     list_filter = ('is_clearance', 'category',)
+
+    def display_average_rating(self, obj):
+        """Display the average rating for a product."""
+        return obj.average_rating()
+    display_average_rating.short_description = 'Average Rating'
 
 
 class CategoryAdmin(admin.ModelAdmin):

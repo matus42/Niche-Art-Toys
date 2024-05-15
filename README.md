@@ -1,5 +1,9 @@
 # Welcome to Niche Art & Toys!
-Niche Art & Toys is an independently owned bussiness offering a carefully curated selection of handcrafted toys, watercolor paintings, and modern calligraphy pieces. Our platform caters to art lovers, collectors, and those seeking the perfect, heartfelt gift.
+Niche Art & Toys represents my fifth milestone project, a dedicated B2C platform that brings together unique, handcrafted toys, watercolor paintings, and modern calligraphy pieces. Our platform caters to art lovers, collectors, and those seeking the perfect, heartfelt gift.
+
+The deployed site can be visited here: [Niche Art & Toys](https://nichestore-c017fc4e2b94.herokuapp.com/)
+
+![Niche Art & Toys](documentation/am_i_responsive.png)
 
 # **Table Of Contents**
 
@@ -469,9 +473,9 @@ My development was guided by a series of user stories grouped by functionality t
 ### Agile Practices Employed
 
 #### Agile Tools and Practices
-- [**Kanban Board:**](https://github.com/matus42/Niche-Art-Toys/issues) Initially using a written plan, the project later transitioned to a digital Kanban board for better visual organization and future planning.
+- [**Kanban Board:**](https://github.com/users/matus42/projects/7) Initially using a written plan, the project later transitioned to a digital Kanban board for better visual organization and future planning.
 - **Daily Standups:** Held daily standups to set goals and review achievements, fostering a disciplined approach to self-management.
-- **User Stories:** Focused development on directly serving user needs and enhancing user experience.
+- [**User Stories:**](https://github.com/matus42/Niche-Art-Toys/issues) Focused development on directly serving user needs and enhancing user experience.
 - **Retrospectives:** Conducted at the end of each sprint to reflect on achievements and areas for improvement.
 
 #### Continuous Feedback and Adaptation
@@ -837,3 +841,28 @@ Niche Art & Toys has several enhancements planned to further improve the user ex
 - **Blog with Interaction**: Integrate a blog where users can read and comment on posts, fostering community interaction.
 - **Art Sessions**: Offer online art sessions and classes, providing opportunities for learning and engagement.
 - **Art Request Interface**: Create an interface for users to request custom art pieces and track the progress of their orders.
+
+# Credits 
+- The foundation for this project was laid by the Code Institute's walkthrough project, "Boutique Ado." This provided essential knowledge and skills that were leveraged in the development of this project. The logical structure of "Boutique Ado" served as a valuable guide, allowing for a seamless adaptation to this project's specific requirements. 
+
+- All artistic products and crochet toys featured on this platform are the original creations of my wife, who also captured the accompanying photographs.
+
+- Background for home page is taken from [here](https://unsplash.com/photos/three-crocheted-ornaments-hanging-from-a-string--rAFoQDxuKM) and edited by me.
+
+## Acknowledgements
+I extend my deepest thanks to all who contributed to the success of my fifth project:
+
+- **David Bowes**: A special thank you to my mentor, David Bowes, for his invaluable guidance and wisdom throughout the development of four projects. His support has been instrumental in my growth as a developer.
+
+- **Code Institute and its Slack community**: Your educational resources and collaborative spirit have been foundational to my learning and project development.
+
+- **My wife and kids**: I'm incredibly grateful for your patience and understanding throughout this project. I'm looking forward to spending more quality time with you all.
+
+- **Friends**:  I'd like to express my gratitude to my friends for their willingness to explore the links I shared throughout the development process. Their feedback and reactions were invaluable in refining and improving this project.
+
+
+#### Summary:
+
+This fifth project was incredibly challenging, definitely the toughest thing I've tackled, right next to raising my kids. My fitness took a back seat because I was so focused on the project. It was really tough, and I'm seriously looking forward to taking at least a week away from the computer.
+
+Matus Gabris

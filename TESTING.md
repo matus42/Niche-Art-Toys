@@ -111,8 +111,9 @@
 
 
 ## WAVE Evaluation Tool
-- There are issues with headings being skipped or not starting with an h1 as the first heading, which can disrupt the page structure.
-- There are errors related to empty form labels; placeholders are being used to describe form fields.
+- There are issues with headings being skipped or not starting with an h1 as the first heading.
+  (planning to fix this later as i run out of time, can implement proper headings and then change font size)
+- There are errors related to empty form labels; placeholders are being used to describe form fields. (mailchimp)
 - Tried to remove all the contrast issues but some may remain.
 
 ![wave](documentation/testing/wave_home.png)
@@ -314,21 +315,21 @@
 2. Execute `pip install --upgrade setuptools` in the terminal.
 3. Successfully re-run the migration command.
 
-### Bug 4: Site Crash When Deleting Product from Shopping Basket
+### Bug 4: Site Crash When Refreshing Shopping Bag After Product Deletion
 
 **Symptoms:**
-- The site crashes when a user attempts to proceed to checkout after a product in their shopping basket has been deleted from the database.
-  (same bug can be found in Boutique Ado)
+- The site crashes when a user refreshes the shopping bag after a product has been deleted from the database. This issue mirrors similar behavior observed in Boutique Ado.
+
 **Cause:**
-- The system tries to access details of a deleted product stored in the user's session data during the checkout process, leading to a failure because the product no longer exists in the database.
+- The system attempts to access details of a deleted product stored in the user's session data during the shopping bag refresh, leading to a failure because the product no longer exists in the database.
 
 **Resolution:**
-- Implement session data cleanup and validation checks before checkout to ensure all products in the basket still exist in the database.
+- Implement session data cleanup and validation checks during the shopping bag refresh to ensure all products in the basket still exist in the database.
 
 **Steps to Resolve:**
-1. **Clear Session on Deletion:** Immediately clear any session data related to the shopping basket that references the deleted product.
-2. **Validation Before Checkout:** Introduce a validation step at the beginning of the checkout process to confirm the existence of all items in the basket within the database. Remove any items that have been deleted from the database before proceeding.
-3. **Improved User Feedback:** Provide feedback to users when items are removed from their basket during the checkout process to inform them of changes due to product unavailability.
+1. **Clear Session on Deletion:** Immediately clear any session data related to the shopping bag that references the deleted product.
+2. **Validation During Shopping Bag Refresh:** Introduce a validation step when the shopping bag is refreshed to confirm the existence of all items in the basket within the database. Remove any items that have been deleted from the database before allowing the user to see the updated bag.
+3. **Improved User Feedback:** Provide feedback to users when items are removed from their basket during the refresh of the shopping bag to inform them of changes due to product unavailability.
 
 **Implementation Example:**
 
@@ -356,9 +357,7 @@ def clean_shopping_bag(request):
 
 def view_bag(request):
     """ A view that renders the bag contents page """
-
     request.session['show_bag_message'] = False
     clean_shopping_bag(request)
     return render(request, 'bag/bag.html')
-
 
