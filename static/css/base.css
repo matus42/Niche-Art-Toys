@@ -131,7 +131,7 @@ a.category-badge>span.badge:hover {
     position: relative;
 }
 
-.clearance-badge {
+/* .clearance-badge {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -140,6 +140,22 @@ a.category-badge>span.badge:hover {
     padding: 5px;
     font-size: 0.8em;
     z-index: 1000;
+} */
+
+.clearance-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #C80000;
+    color: white;
+    padding: 6px 10px;
+    font-size: 0.9em;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.text-danger {
+    color: #C80000 !important;
 }
 
 button[disabled],

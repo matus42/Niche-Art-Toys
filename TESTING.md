@@ -12,6 +12,7 @@
   * [**User Stories**](#user-stories)
   * [**Error Testing**](#error-testing)
 * [**Automated Testing**](#automated-testing)
+* [**Bugs**](#bugs)
 
 
 ## Validator Testing
@@ -112,6 +113,7 @@
 ## WAVE Evaluation Tool
 - There are issues with headings being skipped or not starting with an h1 as the first heading, which can disrupt the page structure.
 - There are errors related to empty form labels; placeholders are being used to describe form fields.
+- Tried to remove all the contrast issues but some may remain.
 
 ![wave](documentation/testing/wave_home.png)
 
@@ -260,3 +262,103 @@
 - A custom 404 error page is displayed whenever a user attempts to access a page that does not exist on the website.
 
 ![404 Page](documentation/testing/404.png)
+
+
+## Bugs 
+
+### Bug 1: Incomplete Product Detail Page Rendering
+
+**Symptoms:**
+- Product detail page only shows a currency symbol and "No Rating" message.
+- Missing product name, description, image, and other details.
+
+**Cause:**
+- Mismatch between the view's context dictionary key and the template's expected variable. The view passed a collection named `products` instead of a single `product` object.
+
+**Resolution:**
+- Updated the dictionary key in the view's context from `products` to `product`.
+
+**Steps to Resolve:**
+1. Identify the mismatch in variable naming conventions between the view and template.
+2. Update the context dictionary key in the view to ensure proper data passing to the template.
+
+
+### Bug 2: Template Parsing Error in Django
+
+**Symptoms:**
+- Django template error: "Could not parse the remainder: '==1' from 'rating.score==1'."
+
+**Cause:**
+- Incorrect syntax in Django template tags, missing spaces around the `==` operator within `{% if %}` conditions.
+
+**Resolution:**
+- Corrected the syntax by adding spaces around the equality operator in the template conditions.
+
+**Steps to Resolve:**
+1. Review the Django template for syntax errors.
+2. Update `{% if rating.score==1 %}` to `{% if rating.score == 1 %}` in the `rating_and_comments.html`.
+
+### Bug 3: ModuleNotFoundError During Django Migration
+
+**Symptoms:**
+- Encountered a `ModuleNotFoundError` related to `pkg_resources` during a dry-run migration after adding Django CountryFields to the model.
+
+**Cause:**
+- Missing or outdated `setuptools` package, which includes `pkg_resources`, needed by Django CountryFields.
+
+**Resolution:**
+- Upgraded `setuptools` in the virtual environment.
+
+**Steps to Resolve:**
+1. Check virtual environment activation.
+2. Execute `pip install --upgrade setuptools` in the terminal.
+3. Successfully re-run the migration command.
+
+### Bug 4: Site Crash When Deleting Product from Shopping Basket
+
+**Symptoms:**
+- The site crashes when a user attempts to proceed to checkout after a product in their shopping basket has been deleted from the database.
+  (same bug can be found in Boutique Ado)
+**Cause:**
+- The system tries to access details of a deleted product stored in the user's session data during the checkout process, leading to a failure because the product no longer exists in the database.
+
+**Resolution:**
+- Implement session data cleanup and validation checks before checkout to ensure all products in the basket still exist in the database.
+
+**Steps to Resolve:**
+1. **Clear Session on Deletion:** Immediately clear any session data related to the shopping basket that references the deleted product.
+2. **Validation Before Checkout:** Introduce a validation step at the beginning of the checkout process to confirm the existence of all items in the basket within the database. Remove any items that have been deleted from the database before proceeding.
+3. **Improved User Feedback:** Provide feedback to users when items are removed from their basket during the checkout process to inform them of changes due to product unavailability.
+
+**Implementation Example:**
+
+```python
+from django.shortcuts import redirect
+from django.contrib import messages
+from products.models import Product
+
+def clean_shopping_bag(request):
+    """Remove non-existent products from the shopping bag."""
+    bag = request.session.get('bag', {})
+    cleaned_bag = {}
+    has_changes = False
+
+    for item_id, quantity in bag.items():
+        if Product.objects.filter(id=item_id).exists():
+            cleaned_bag[item_id] = quantity
+        else:
+            has_changes = True
+            messages.error(
+                request,
+                "Some items in your bag were not found and have been removed.")
+    if has_changes:
+        request.session['bag'] = cleaned_bag
+
+def view_bag(request):
+    """ A view that renders the bag contents page """
+
+    request.session['show_bag_message'] = False
+    clean_shopping_bag(request)
+    return render(request, 'bag/bag.html')
+
+
